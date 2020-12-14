@@ -13,6 +13,7 @@ type PostProps = {
 type ContentProps = {
   header: React.ReactNode;
   children: React.ReactNode;
+  post: PostType;
 };
 
 export function Post({ post, children }: PostProps) {
@@ -27,11 +28,23 @@ export function Post({ post, children }: PostProps) {
     </>
   );
 
+  const Expandable = (
+    <div onClick={toggleBodyExpand}>
+      {expandable ? (
+        <Minion clickable styles="text-blue-600">
+          Show more
+        </Minion>
+      ) : (
+        <Minion clickable>Show less</Minion>
+      )}
+    </div>
+  );
+
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row mb-8">
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
-      <Content header={Header}>
+      <Content header={Header} post={post}>
         <div style={{ zIndex: 100 }}>
           <PostBubble>
             <div onClick={toggleBodyExpand}>
@@ -40,15 +53,7 @@ export function Post({ post, children }: PostProps) {
               </Body>
             </div>
 
-            <div onClick={toggleBodyExpand}>
-              {expandable ? (
-                <Minion clickable styles="text-blue-600">
-                  Show more
-                </Minion>
-              ) : (
-                <Minion clickable>Show less</Minion>
-              )}
-            </div>
+            {post.body.length > 280 ? Expandable : null}
 
             <div className="mt-2">
               <SmartGallery
@@ -71,13 +76,13 @@ export function Post({ post, children }: PostProps) {
 
 export function Replies({ count }: { count: number }) {
   const NoReplies = (
-    <Minion clickable styles="ml-auto">
+    <Minion clickable styles="ml-auto mt-1 pr-2">
       Reply
     </Minion>
   );
 
   const HasReplies = (
-    <div className={`ml-6 -mt-2 pt-2 pb-1 px-4 bg-blue-600 rounded-b-2xl z-0`}>
+    <div className={`ml-6 -mt-2 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl z-0`}>
       <Minion clickable invert styles="float-right">
         {count} replies
       </Minion>
@@ -87,14 +92,14 @@ export function Replies({ count }: { count: number }) {
   return <>{count ? HasReplies : NoReplies}</>;
 }
 
-export function Content({ header, children }: ContentProps) {
+export function Content({ header, post, children }: ContentProps) {
   return (
     <div className="ml-2 flex flex-col flex-grow">
       <div className="mb-2">{header}</div>
 
       {children}
 
-      <Replies count={1} />
+      <Replies count={post.replies} />
     </div>
   );
 }
