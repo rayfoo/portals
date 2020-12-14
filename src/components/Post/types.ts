@@ -10,7 +10,7 @@ export type PostType = {
   };
   body: string;
   media: {
-    images?: { src: string; width: number; height: number }[];
+    images?: string[];
     video?: { url: string };
   };
   reactions: [
