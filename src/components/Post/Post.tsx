@@ -45,7 +45,7 @@ export function Post({ post, children }: PostProps) {
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
       <Content header={Header} post={post}>
-        <div style={{ zIndex: 100 }}>
+        <div style={{ zIndex: 10 }}>
           <PostBubble>
             <div onClick={toggleBodyExpand}>
               <Body clickable>
