@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from '../Elements/Container';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -271,9 +272,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* <!-- Replace with your content --> */}
-          {children}
-          {/* <!-- /End replace --> */}
+          <div className="mt-20">
+            <div className="rounded-2xl w-72 py-8 px-3 bg-gray-200 fixed hidden md:block">
+              Sidebar
+            </div>
+
+            <Container>{children}</Container>
+          </div>
         </div>
       </main>
     </div>
