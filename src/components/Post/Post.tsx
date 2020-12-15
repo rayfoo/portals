@@ -17,9 +17,10 @@ type ContentProps = {
 };
 
 export function Post({ post, children }: PostProps) {
-  const [expandable, setExpand] = React.useState(post.body.length > 280);
+  const isExpandable = post.body.length > 280;
+  const [expandState, setExpandState] = React.useState(!isExpandable);
 
-  const toggleBodyExpand = () => setExpand((previous) => !previous);
+  const toggleBodyExpand = () => setExpandState((previous) => !previous);
 
   const Header = (
     <>
@@ -30,12 +31,12 @@ export function Post({ post, children }: PostProps) {
 
   const Expandable = (
     <div onClick={toggleBodyExpand}>
-      {expandable ? (
+      {expandState ? (
+        <Minion clickable>Show less</Minion>
+      ) : (
         <Minion clickable styles="text-blue-600">
           Show more
         </Minion>
-      ) : (
-        <Minion clickable>Show less</Minion>
       )}
     </div>
   );
@@ -49,11 +50,11 @@ export function Post({ post, children }: PostProps) {
           <PostBubble>
             <div onClick={toggleBodyExpand}>
               <Body clickable>
-                {expandable ? post.body.slice(0, 279) : post.body}
+                {expandState ? post.body : post.body.slice(0, 279)}
               </Body>
             </div>
 
-            {post.body.length > 280 ? Expandable : null}
+            {isExpandable ? Expandable : null}
 
             <div className="mt-2">
               <SmartGallery
