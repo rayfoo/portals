@@ -68,11 +68,29 @@ export function Post({ post, children }: PostProps) {
 
             {isExpandable ? Expandable : null}
 
-            <div className="mt-2">
+            <div className="mt-2 lg:hidden">
               <SmartGallery
                 images={post.media.images}
                 width="100%"
-                height={400}
+                height={224}
+                rootStyle={{
+                  overflow: 'hidden',
+                  borderRadius: '16px',
+                  cursor: 'pointer',
+                }}
+                onImageSelect={(e: any, src: any, index: any) => {
+                  // Index starts at 0 for SmartGaleery
+                  // but at 1 for FsLightbox
+                  openLightboxOnSlide(index + 1);
+                }}
+              />
+            </div>
+
+            <div className="mt-2 hidden lg:block">
+              <SmartGallery
+                images={post.media.images}
+                width="100%"
+                height={320}
                 rootStyle={{
                   overflow: 'hidden',
                   borderRadius: '16px',
