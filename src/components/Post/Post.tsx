@@ -1,5 +1,6 @@
 import React from 'react';
 import SmartGallery from 'react-smart-gallery';
+import FsLightbox from 'fslightbox-react';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
@@ -19,8 +20,19 @@ type ContentProps = {
 export function Post({ post, children }: PostProps) {
   const isExpandable = post.body.length > 280;
   const [expandState, setExpandState] = React.useState(!isExpandable);
+  const [lightboxController, setLightboxController] = React.useState({
+    toggler: false,
+    slide: 1,
+  });
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
+
+  const openLightboxOnSlide = (index: number) => {
+    setLightboxController({
+      toggler: !lightboxController.toggler,
+      slide: index,
+    });
+  };
 
   const Header = (
     <>
@@ -66,11 +78,22 @@ export function Post({ post, children }: PostProps) {
                   borderRadius: '16px',
                   cursor: 'pointer',
                 }}
+                onImageSelect={(e: any, src: any, index: any) => {
+                  // Index starts at 0 for SmartGaleery
+                  // but at 1 for FsLightbox
+                  openLightboxOnSlide(index + 1);
+                }}
               />
             </div>
           </PostBubble>
         </div>
       </Content>
+
+      <FsLightbox
+        toggler={lightboxController.toggler}
+        sources={post.media.images}
+        slide={lightboxController.slide}
+      />
     </div>
   );
 }
