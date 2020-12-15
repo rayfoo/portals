@@ -18,7 +18,7 @@ function Text({
 
   return (
     <p
-      className={`m-0 p-0 text-base antialiased subpixel-antialised leading-relaxed ${cursorStyle} ${invertStyle} ${styles}`}
+      className={`m-0 p-0 antialiased subpixel-antialised leading-relaxed ${cursorStyle} ${invertStyle} ${styles}`}
     >
       {children}
     </p>
@@ -27,7 +27,7 @@ function Text({
 
 export function Title({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`font-semibold text-gray-900 ${styles}`} {...rest}>
+    <Text styles={`text-base font-semibold text-gray-900 ${styles}`} {...rest}>
       {children}
     </Text>
   );
@@ -35,7 +35,7 @@ export function Title({ children, styles = '', ...rest }: TextProps) {
 
 export function Body({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`font-normal text-gray-900 ${styles}`} {...rest}>
+    <Text styles={`text-base font-normal text-gray-900 ${styles}`} {...rest}>
       {children}
     </Text>
   );
@@ -43,7 +43,7 @@ export function Body({ children, styles = '', ...rest }: TextProps) {
 
 export function Byline({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`font-normal text-gray-400 ${styles}`} {...rest}>
+    <Text styles={`text-base font-normal text-gray-400 ${styles}`} {...rest}>
       {children}
     </Text>
   );
