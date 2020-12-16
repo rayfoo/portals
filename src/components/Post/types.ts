@@ -1,4 +1,5 @@
 export type PostType = {
+  parent: string | null;
   user: {
     handle: string;
     avatarURL: string;
@@ -10,8 +11,8 @@ export type PostType = {
   };
   body: string;
   media: {
-    images?: string[];
-    video?: { url: string };
+    images: string[] | [];
+    video: string | '';
   };
   reactions: [
     {
