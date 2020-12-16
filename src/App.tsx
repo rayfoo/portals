@@ -28,7 +28,9 @@ function App() {
         <PostList posts={posts} openSlider={openSlider} />
       </Layout>
 
-      <Slider openState={sliderState} closeSlider={closeSlider} />
+      <Slider openState={sliderState} closeSlider={closeSlider}>
+        Slider Content
+      </Slider>
     </div>
   );
 }

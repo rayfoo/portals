@@ -3,11 +3,14 @@ import { Transition } from '@headlessui/react';
 
 type props = {
   children: React.ReactNode;
-  openState: boolean;
+  openState: {
+    isOpen: boolean;
+    payload: any;
+  };
   closeSlider: () => void;
 };
 
-export function Slider({ children, openState = false, closeSlider }: any) {
+export function Slider({ children, openState, closeSlider }: props) {
   const { isOpen } = openState;
 
   return (
@@ -34,7 +37,7 @@ export function Slider({ children, openState = false, closeSlider }: any) {
           >
             <div className="relative w-screen w-full h-full">
               <div className="h-full flex flex-col p-4 bg-white shadow-xl rounded-t-2xl">
-                Content
+                {children}
               </div>
             </div>
           </section>
@@ -49,7 +52,7 @@ export function Slider({ children, openState = false, closeSlider }: any) {
           >
             <div className="relative w-screen max-w-xl h-full">
               <div className="h-full flex flex-col p-4 bg-white shadow-xl rounded-l-2xl">
-                Content
+                {children}
               </div>
             </div>
           </section>
