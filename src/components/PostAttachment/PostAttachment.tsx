@@ -1,26 +1,59 @@
 import React from 'react';
 import SmartGallery from 'react-smart-gallery';
+
+import { Body, Title, Byline } from '../Elements/Text';
+import { Avatar } from '../Elements/Avatar';
 import { PostType } from '../Post';
+import { EmbeddedBubble } from '../PostBubble';
+import { parent as fakeParent } from '../../data';
 
 type props = {
   parent: PostType['parent'];
   media: PostType['media'];
   onImageClick: (index: number) => void;
+  onParentClick: (payload: any) => void;
 };
 
-export function PostAttachment({ parent, media, onImageClick }: props) {
+export function PostAttachment({
+  parent,
+  media,
+  onImageClick,
+  onParentClick,
+}: props) {
   // Is there a parent? If so, return the parent as the attachment
   // If not, if else for images and video
   const handleImageClick = (index: number) => {
     onImageClick(index);
   };
 
+  const handleParentClick = () => {
+    onParentClick({});
+  };
+
   if (parent) {
+    const isLongText = fakeParent.body.length > 280;
+
     return (
-      <>
-        Some parent component
-        <div>Some more content</div>
-      </>
+      <div className="mt-2" onClick={handleParentClick}>
+        <EmbeddedBubble>
+          <Avatar size="sm" url={fakeParent.user.avatarURL} alt="user avatar" />
+          <span className="ml-2">
+            <Title clickable styles="inline">
+              {fakeParent.user.handle}
+            </Title>
+            <Byline
+              clickable
+              styles="inline"
+            >{` in ${fakeParent.postedIn.name}`}</Byline>
+          </span>
+
+          <Body clickable styles="mt-1">
+            {isLongText
+              ? `${fakeParent.body.slice(0, 279)}...`
+              : fakeParent.body}
+          </Body>
+        </EmbeddedBubble>
+      </div>
     );
   }
 

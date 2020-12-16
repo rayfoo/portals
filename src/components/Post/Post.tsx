@@ -76,6 +76,7 @@ export function Post({ post, children, openSlider }: PostProps) {
               parent={post.parent}
               media={post.media}
               onImageClick={launchLightbox}
+              onParentClick={openSlider}
             />
           </PostBubble>
         </div>
