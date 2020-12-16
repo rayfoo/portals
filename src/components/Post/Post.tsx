@@ -41,7 +41,11 @@ export function Post({ post, children, openSlider }: PostProps) {
   const Header = (
     <>
       <Title styles="inline">{post.user.handle}</Title>
-      <Byline styles="inline">{` in ${post.postedIn.name}`}</Byline>
+      {post.parent ? (
+        <Byline styles="inline"> posted a reply</Byline>
+      ) : (
+        <Byline styles="inline">{` in ${post.postedIn.name}`}</Byline>
+      )}
     </>
   );
 
