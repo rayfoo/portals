@@ -1,5 +1,4 @@
 import React from 'react';
-import SmartGallery from 'react-smart-gallery';
 import FsLightbox from 'fslightbox-react';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
