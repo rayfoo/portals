@@ -5,3 +5,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
+
+body.modal-open {
+  overflow-y: hidden;
+}

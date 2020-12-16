@@ -9,6 +9,7 @@ import { PostType } from './types';
 type PostProps = {
   post: PostType;
   children?: React.ReactNode;
+  openSlider: (payload: any) => void;
 };
 
 type ContentProps = {
@@ -17,7 +18,7 @@ type ContentProps = {
   post: PostType;
 };
 
-export function Post({ post, children }: PostProps) {
+export function Post({ post, children, openSlider }: PostProps) {
   const isExpandable = post.body.length > 280;
   const [expandState, setExpandState] = React.useState(!isExpandable);
   const [lightboxController, setLightboxController] = React.useState({
@@ -60,7 +61,7 @@ export function Post({ post, children }: PostProps) {
       <Content header={Header} post={post}>
         <div style={{ zIndex: 10 }}>
           <PostBubble>
-            <div onClick={toggleBodyExpand}>
+            <div onClick={openSlider}>
               <Body clickable>
                 {expandState ? post.body : post.body.slice(0, 279)}
               </Body>
