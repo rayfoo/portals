@@ -31,8 +31,8 @@ export function Slider({ children, openState, closeSlider }: props) {
       <div className="md:hidden">
         <Transition show={isOpen}>
           <section
-            className="fixed inset-x-0 bottom-0 max-w-full flex z-50 px-4"
-            style={{ height: '90vh' }}
+            className="fixed inset-x-0 bottom-0 max-w-full flex z-50 px-0"
+            style={{ height: 0.9 * window.innerHeight }}
             aria-labelledby="slide-over-heading"
           >
             <div className="relative w-screen w-full h-full">
@@ -47,7 +47,7 @@ export function Slider({ children, openState, closeSlider }: props) {
       <div className="hidden md:contents">
         <Transition show={isOpen}>
           <section
-            className="absolute inset-y-0 right-0 pl-10 max-w-full flex z-50 py-4"
+            className="absolute inset-y-0 right-0 pl-10 max-w-full flex z-50 py-0"
             aria-labelledby="slide-over-heading"
           >
             <div className="relative w-screen max-w-xl h-full">
