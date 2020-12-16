@@ -1,7 +1,13 @@
 import React from 'react';
 import { Transition } from '@headlessui/react';
 
-export function Slider({ openState, closeSlider }: any) {
+type props = {
+  children: React.ReactNode;
+  openState: boolean;
+  closeSlider: () => void;
+};
+
+export function Slider({ children, openState = false, closeSlider }: any) {
   const { isOpen } = openState;
 
   return (
@@ -40,55 +46,8 @@ export function Slider({ openState, closeSlider }: any) {
               leaveTo="translate-x-full"
             >
               <div className="relative w-screen max-w-xl h-full">
-                <Transition
-                  show={isOpen}
-                  enter="ease-in-out duration-500"
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="ease-in-out duration-500"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0"
-                >
-                  <div className="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
-                    <button
-                      className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                      onClick={closeSlider}
-                    >
-                      <span className="sr-only">Close panel</span>
-                      {/* <!-- Heroicon name: x --> */}
-                      <svg
-                        className="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </Transition>
-
-                <div className="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
-                  <div className="px-4 sm:px-6">
-                    <h2
-                      id="slide-over-heading"
-                      className="text-lg font-medium text-gray-900"
-                    >
-                      Panel title
-                    </h2>
-                  </div>
-                  <div className="mt-6 relative flex-1 px-4 sm:px-6">
-                    {/* <!-- Replace with your content --> */}
-                    some content here
-                    {/* <!-- /End replace --> */}
-                  </div>
+                <div className="h-full flex flex-col p-4 bg-white shadow-xl overflow-y-scroll">
+                  {children}
                 </div>
               </div>
             </Transition>
