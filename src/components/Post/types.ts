@@ -1,4 +1,5 @@
 export type PostType = {
+  id: string;
   parent: string | null;
   user: {
     handle: string;

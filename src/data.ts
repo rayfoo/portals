@@ -1,6 +1,7 @@
 import { PostType } from './components/Post/types';
 
 const post: PostType = {
+  id: '1',
   parent: null,
   user: {
     handle: '@somedude',
@@ -30,6 +31,7 @@ const post: PostType = {
 };
 
 const post2: PostType = {
+  id: '2',
   parent: null,
   user: {
     handle: '@someperson2',
@@ -53,6 +55,7 @@ const post2: PostType = {
 };
 
 const post3: PostType = {
+  id: '3',
   parent: 'post123',
   user: {
     handle: '@someperson2',
@@ -79,6 +82,7 @@ const post3: PostType = {
 };
 
 export const parent = {
+  id: '10',
   user: {
     handle: '@somedude',
     avatarURL:

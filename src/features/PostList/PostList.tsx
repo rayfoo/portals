@@ -10,7 +10,7 @@ export function PostList({ posts, openSlider }: props) {
   return (
     <>
       {posts.map((post) => (
-        <Post post={post} openSlider={openSlider} />
+        <Post key={post.id} post={post} openSlider={openSlider} />
       ))}
     </>
   );
