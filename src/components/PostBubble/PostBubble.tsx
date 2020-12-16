@@ -18,7 +18,7 @@ export function PostBubble({ children, styles = '' }: props) {
 export function EmbeddedBubble({ children, styles = '' }: props) {
   return (
     <Bubble
-      styles={`px-3 py-2 rounded-xl border-2 border-solid border-gray-300 cursor-pointer hover:bg-blue-100 hover:border-blue-600 ease-in duration-300 transition-color ${styles}`}
+      styles={`px-3 py-2 rounded-xl border-2 border-solid border-gray-300 cursor-pointer hover:bg-blue-50 hover:border-blue-600 ease-in duration-300 transition-color ${styles}`}
     >
       {children}
     </Bubble>
