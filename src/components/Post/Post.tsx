@@ -4,8 +4,9 @@ import FsLightbox from 'fslightbox-react';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
-import { PostType } from './types';
 import { PostAttachment } from '../PostAttachment';
+import { PostBubble } from '../PostBubble';
+import { PostType } from './types';
 
 type PostProps = {
   post: PostType;
@@ -115,20 +116,6 @@ export function Content({ header, post, children }: ContentProps) {
       {children}
 
       <Replies count={post.replies} />
-    </div>
-  );
-}
-
-function PostBubble({
-  children,
-  styles = '',
-}: {
-  children: React.ReactNode;
-  styles?: string;
-}) {
-  return (
-    <div className={`p-5 bg-gray-100 rounded-2xl rounded-tl-none ${styles}`}>
-      {children}
     </div>
   );
 }
