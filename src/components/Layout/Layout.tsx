@@ -10,8 +10,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <img
-                  className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                  className="h-10"
+                  src="https://firebasestorage.googleapis.com/v0/b/portals-7cdfd.appspot.com/o/assets%2FGroup%204.png?alt=media&token=f2cd29ae-5ae0-4f20-83ed-a16cbe1cda60"
                   alt="Workflow"
                 />
               </div>
