@@ -65,24 +65,22 @@ export function Post({ post, children, openSlider }: PostProps) {
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
       <Content header={Header} post={post}>
-        <div style={{ zIndex: 10 }}>
-          <PostBubble>
-            <div onClick={openSlider}>
-              <Body clickable>
-                {expandState ? post.body : post.body.slice(0, 279)}
-              </Body>
-            </div>
+        <PostBubble>
+          <div onClick={openSlider}>
+            <Body clickable>
+              {expandState ? post.body : post.body.slice(0, 279)}
+            </Body>
+          </div>
 
-            {isExpandable ? Expandable : null}
+          {isExpandable ? Expandable : null}
 
-            <PostAttachment
-              parent={post.parent}
-              media={post.media}
-              onImageClick={launchLightbox}
-              onParentClick={openSlider}
-            />
-          </PostBubble>
-        </div>
+          <PostAttachment
+            parent={post.parent}
+            media={post.media}
+            onImageClick={launchLightbox}
+            onParentClick={openSlider}
+          />
+        </PostBubble>
       </Content>
 
       <FsLightbox
@@ -102,7 +100,7 @@ export function Replies({ count }: { count: number }) {
   );
 
   const HasReplies = (
-    <div className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl z-0`}>
+    <div className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl`}>
       <Minion clickable invert styles="float-right">
         {count} replies
       </Minion>

@@ -4,7 +4,7 @@ import { Container } from '../Elements/Container';
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <nav className="bg-white fixed" style={{ zIndex: 90, width: '100%' }}>
+      <nav className="bg-white fixed z-10 w-full">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">

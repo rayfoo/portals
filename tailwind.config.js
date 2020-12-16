@@ -19,7 +19,11 @@ module.exports = {
       base: '15px',
       lg: '16px',
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        '-10': '-10',
+      },
+    },
   },
   variants: {
     extend: {},
