@@ -43,7 +43,7 @@ export function Body({ children, styles = '', ...rest }: TextProps) {
 
 export function Byline({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`text-base font-normal text-gray-400 ${styles}`} {...rest}>
+    <Text styles={`text-base font-normal text-gray-500 ${styles}`} {...rest}>
       {children}
     </Text>
   );
