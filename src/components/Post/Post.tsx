@@ -5,6 +5,7 @@ import FsLightbox from 'fslightbox-react';
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { PostType } from './types';
+import { PostAttachment } from '../PostAttachment';
 
 type PostProps = {
   post: PostType;
@@ -20,6 +21,7 @@ type ContentProps = {
 
 export function Post({ post, children, openSlider }: PostProps) {
   const isExpandable = post.body.length > 280;
+
   const [expandState, setExpandState] = React.useState(!isExpandable);
   const [lightboxController, setLightboxController] = React.useState({
     toggler: false,
@@ -28,7 +30,7 @@ export function Post({ post, children, openSlider }: PostProps) {
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
 
-  const openLightboxOnSlide = (index: number) => {
+  const launchLightbox = (index: number) => {
     setLightboxController({
       toggler: !lightboxController.toggler,
       slide: index,
@@ -69,41 +71,11 @@ export function Post({ post, children, openSlider }: PostProps) {
 
             {isExpandable ? Expandable : null}
 
-            <div className="mt-2 lg:hidden">
-              <SmartGallery
-                images={post.media.images}
-                width="100%"
-                height={224}
-                rootStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '16px',
-                  cursor: 'pointer',
-                }}
-                onImageSelect={(e: any, src: any, index: any) => {
-                  // Index starts at 0 for SmartGaleery
-                  // but at 1 for FsLightbox
-                  openLightboxOnSlide(index + 1);
-                }}
-              />
-            </div>
-
-            <div className="mt-2 hidden lg:block">
-              <SmartGallery
-                images={post.media.images}
-                width="100%"
-                height={320}
-                rootStyle={{
-                  overflow: 'hidden',
-                  borderRadius: '16px',
-                  cursor: 'pointer',
-                }}
-                onImageSelect={(e: any, src: any, index: any) => {
-                  // Index starts at 0 for SmartGaleery
-                  // but at 1 for FsLightbox
-                  openLightboxOnSlide(index + 1);
-                }}
-              />
-            </div>
+            <PostAttachment
+              parent={post.parent}
+              media={post.media}
+              onImageClick={launchLightbox}
+            />
           </PostBubble>
         </div>
       </Content>
