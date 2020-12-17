@@ -7,10 +7,10 @@ import { EmbeddedMedia } from '../EmbeddedMedia';
 
 type props = {
   post: PostType;
-  onMediaClick?: () => void;
+  onClick: (payload: any) => void;
 };
 
-export function EmbeddedPost({ post }: props) {
+export function EmbeddedPost({ post, onClick }: props) {
   const isLongText = post.body.length > 280;
 
   return (
@@ -23,9 +23,11 @@ export function EmbeddedPost({ post }: props) {
         <Byline clickable styles="inline">{` in ${post.postedIn.name}`}</Byline>
       </span>
 
-      <Body clickable styles="mt-1">
-        {isLongText ? `${post.body.slice(0, 279)}...` : post.body}
-      </Body>
+      <div onClick={() => onClick(post)}>
+        <Body clickable styles="mt-1">
+          {isLongText ? `${post.body.slice(0, 279)}...` : post.body}
+        </Body>
+      </div>
 
       <EmbeddedMedia media={post.media} maxHeight={180} />
     </EmbeddedBubble>
