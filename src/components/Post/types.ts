@@ -1,6 +1,6 @@
 export type PostType = {
   id: string;
-  parent: string | null;
+  parent: string;
   user: {
     handle: string;
     avatarURL: string;

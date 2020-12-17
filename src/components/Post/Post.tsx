@@ -3,7 +3,8 @@ import FsLightbox from 'fslightbox-react';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
-import { PostAttachment } from '../PostAttachment';
+import { PostMedia } from '../PostMedia';
+import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
 
@@ -72,14 +73,15 @@ export function Post({ post, children, openSlider }: PostProps) {
             </Body>
           </div>
 
-          {isExpandable ? Expandable : null}
+          {isExpandable && Expandable}
 
-          <PostAttachment
-            parent={post.parent}
-            media={post.media}
-            onImageClick={launchLightbox}
-            onParentClick={openSlider}
-          />
+          <div className="mt-2">
+            {post.parent ? (
+              <EmbeddedPostContainer id={post.parent} onClick={openSlider} />
+            ) : (
+              <PostMedia media={post.media} onImageClick={launchLightbox} />
+            )}
+          </div>
         </PostBubble>
       </Content>
 

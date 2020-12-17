@@ -1,70 +1,27 @@
 import React from 'react';
 import SmartGallery from 'react-smart-gallery';
 
-import { Body, Title, Byline } from '../Elements/Text';
-import { Avatar } from '../Elements/Avatar';
 import { PostType } from '../Post';
-import { EmbeddedBubble } from '../PostBubble';
-import { parent as fakeParent } from '../../data';
 
 type props = {
-  parent: PostType['parent'];
   media: PostType['media'];
+  maxHeight?: number;
   onImageClick: (index: number) => void;
-  onParentClick: (payload: any) => void;
 };
 
-export function PostAttachment({
-  parent,
-  media,
-  onImageClick,
-  onParentClick,
-}: props) {
-  // Is there a parent? If so, return the parent as the attachment
-  // If not, if else for images and video
+export function PostMedia({ media, maxHeight = 320, onImageClick }: props) {
   const handleImageClick = (index: number) => {
     onImageClick(index);
   };
 
-  const handleParentClick = () => {
-    onParentClick({});
-  };
-
-  if (parent) {
-    const isLongText = fakeParent.body.length > 280;
-
-    return (
-      <div className="mt-2" onClick={handleParentClick}>
-        <EmbeddedBubble>
-          <Avatar size="sm" url={fakeParent.user.avatarURL} alt="user avatar" />
-          <span className="ml-2">
-            <Title clickable styles="inline">
-              {fakeParent.user.handle}
-            </Title>
-            <Byline
-              clickable
-              styles="inline"
-            >{` in ${fakeParent.postedIn.name}`}</Byline>
-          </span>
-
-          <Body clickable styles="mt-1">
-            {isLongText
-              ? `${fakeParent.body.slice(0, 279)}...`
-              : fakeParent.body}
-          </Body>
-        </EmbeddedBubble>
-      </div>
-    );
-  }
-
   if (media.images.length > 0)
     return (
       <>
-        <div className="mt-2 lg:hidden">
+        <div className="lg:hidden">
           <SmartGallery
             images={media.images}
             width="100%"
-            height={320}
+            height={maxHeight}
             rootStyle={{
               overflow: 'hidden',
               borderRadius: '16px',
@@ -78,11 +35,11 @@ export function PostAttachment({
           />
         </div>
 
-        <div className="mt-2 hidden lg:block">
+        <div className="hidden lg:block">
           <SmartGallery
             images={media.images}
             width="100%"
-            height={320}
+            height={maxHeight}
             rootStyle={{
               overflow: 'hidden',
               borderRadius: '16px',
