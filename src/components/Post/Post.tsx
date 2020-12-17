@@ -54,7 +54,7 @@ export function Post({ post, children, openSlider }: PostProps) {
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
       <Content header={Header} post={post}>
-        <PostBubble>
+        <PostBubble styles={`${post.replies && 'shadow-lg'}`}>
           <div onClick={() => openSlider(post)}>
             <Body clickable>
               {expandState ? post.body : post.body.slice(0, 279)}
