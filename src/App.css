@@ -24,3 +24,8 @@ body.modal-open {
   touch-action: none;
   -ms-touch-action: none;
 }
+
+.touch-scroll {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
