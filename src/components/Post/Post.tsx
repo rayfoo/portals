@@ -1,5 +1,4 @@
 import React from 'react';
-import FsLightbox from 'fslightbox-react';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
@@ -24,19 +23,8 @@ export function Post({ post, children, openSlider }: PostProps) {
   const isExpandable = post.body.length > 280;
 
   const [expandState, setExpandState] = React.useState(!isExpandable);
-  const [lightboxController, setLightboxController] = React.useState({
-    toggler: false,
-    slide: 1,
-  });
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
-
-  const launchLightbox = (index: number) => {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      slide: index,
-    });
-  };
 
   const Header = (
     <>
@@ -79,17 +67,11 @@ export function Post({ post, children, openSlider }: PostProps) {
             {post.parent ? (
               <EmbeddedPostContainer id={post.parent} onClick={openSlider} />
             ) : (
-              <PostMedia media={post.media} onImageClick={launchLightbox} />
+              <PostMedia media={post.media} />
             )}
           </div>
         </PostBubble>
       </Content>
-
-      <FsLightbox
-        toggler={lightboxController.toggler}
-        sources={post.media.images}
-        slide={lightboxController.slide}
-      />
     </div>
   );
 }

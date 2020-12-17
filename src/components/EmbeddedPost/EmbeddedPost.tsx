@@ -27,11 +27,7 @@ export function EmbeddedPost({ post }: props) {
         {isLongText ? `${post.body.slice(0, 279)}...` : post.body}
       </Body>
 
-      <PostMedia
-        media={post.media}
-        onImageClick={(index: number) => console.log()}
-        maxHeight={180}
-      />
+      <PostMedia media={post.media} maxHeight={180} />
     </EmbeddedBubble>
   );
 }
