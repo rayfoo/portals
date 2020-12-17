@@ -18,6 +18,7 @@ module.exports = {
       sm: '14px',
       base: '15px',
       lg: '16px',
+      xl: '18px',
     },
     extend: {
       zIndex: {

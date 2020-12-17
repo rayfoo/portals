@@ -25,6 +25,14 @@ function Text({
   );
 }
 
+export function Heading({ children, styles = '', ...rest }: TextProps) {
+  return (
+    <Text styles={`text-xl font-bold text-gray-900 ${styles}`} {...rest}>
+      {children}
+    </Text>
+  );
+}
+
 export function Title({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text styles={`text-base font-semibold text-gray-900 ${styles}`} {...rest}>
