@@ -11,5 +11,5 @@ export function EmbeddedPostContainer({ id, onClick }: props) {
   // do some fetching
   const post = parent;
 
-  return <EmbeddedPost post={post} onClick={onClick} />;
+  return <EmbeddedPost post={post} onClick={onClick} media={false} />;
 }

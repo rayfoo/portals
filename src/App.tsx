@@ -5,21 +5,28 @@ import { Layout } from './components/Layout';
 import { PostList } from './features/PostList';
 import { posts } from './data';
 import { Slider } from './components/Slider';
+import { PostType } from './components/Post';
+import { EmbeddedPost } from './components/EmbeddedPost';
 
 function App() {
-  const [sliderState, setSliderState] = React.useState({
+  const state: {
+    isOpen: boolean;
+    payload: PostType | null;
+  } = {
     isOpen: false,
-    payload: {},
-  });
+    payload: null,
+  };
+
+  const [sliderState, setSliderState] = React.useState(state);
 
   const closeSlider = () => {
     document.body.classList.remove('modal-open');
-    setSliderState({ isOpen: false, payload: {} });
+    setSliderState({ isOpen: false, payload: null });
   };
 
-  const openSlider = (payload: any) => {
+  const openSlider = (payload: PostType) => {
     document.body.classList.add('modal-open');
-    setSliderState({ isOpen: true, payload });
+    setSliderState(() => ({ isOpen: true, payload }));
   };
 
   return (
@@ -28,8 +35,8 @@ function App() {
         <PostList posts={posts} openSlider={openSlider} />
       </Layout>
 
-      <Slider openState={sliderState} closeSlider={closeSlider}>
-        Slider Content
+      <Slider isOpen={sliderState.isOpen} closeSlider={closeSlider}>
+        {sliderState.payload && <EmbeddedPost post={sliderState.payload} />}
       </Slider>
     </div>
   );
