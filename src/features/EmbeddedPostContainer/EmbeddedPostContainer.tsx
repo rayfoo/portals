@@ -4,7 +4,7 @@ import { EmbeddedPost } from '../../components/EmbeddedPost';
 
 type props = {
   id: string;
-  onClick: (payload: any) => void;
+  onClick?: (payload: any) => void;
 };
 
 export function EmbeddedPostContainer({ id, onClick }: props) {
