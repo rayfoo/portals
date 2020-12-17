@@ -47,11 +47,11 @@ export function Slider({ children, openState, closeSlider }: props) {
       <div className="hidden md:contents">
         <Transition show={isOpen}>
           <section
-            className="absolute inset-y-0 right-0 pl-10 max-w-full flex z-50 py-0"
+            className="fixed inset-y-0 right-0 pl-10 max-w-full flex z-50 py-0"
             aria-labelledby="slide-over-heading"
           >
             <div className="relative w-screen max-w-xl h-full">
-              <div className="h-full flex flex-col p-4 bg-white shadow-xl rounded-l-2xl">
+              <div className="h-screen flex flex-col p-4 bg-white shadow-xl rounded-l-2xl">
                 {children}
               </div>
             </div>
