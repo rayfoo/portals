@@ -55,7 +55,7 @@ export function Post({ post, children, openSlider }: PostProps) {
 
       <Content header={Header} post={post}>
         <PostBubble>
-          <div onClick={openSlider}>
+          <div onClick={() => openSlider(post)}>
             <Body clickable>
               {expandState ? post.body : post.body.slice(0, 279)}
             </Body>
