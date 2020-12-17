@@ -100,7 +100,9 @@ export function Replies({ count }: { count: number }) {
   );
 
   const HasReplies = (
-    <div className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl`}>
+    <div
+      className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl -z-10`}
+    >
       <Minion clickable invert styles="float-right">
         {count} replies
       </Minion>
