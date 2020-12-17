@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
-import { PostMedia } from '../PostMedia';
+import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
@@ -67,7 +67,7 @@ export function Post({ post, children, openSlider }: PostProps) {
             {post.parent ? (
               <EmbeddedPostContainer id={post.parent} onClick={openSlider} />
             ) : (
-              <PostMedia media={post.media} />
+              <EmbeddedMedia media={post.media} />
             )}
           </div>
         </PostBubble>

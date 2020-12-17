@@ -9,7 +9,7 @@ type props = {
   maxHeight?: number;
 };
 
-export function PostMedia({ media, maxHeight = 320 }: props) {
+export function EmbeddedMedia({ media, maxHeight = 320 }: props) {
   const [lightboxController, setLightboxController] = React.useState({
     toggler: false,
     slide: 1,

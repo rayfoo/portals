@@ -3,7 +3,7 @@ import { Body, Title, Byline } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { PostType } from '../Post';
 import { EmbeddedBubble } from '../PostBubble';
-import { PostMedia } from '../PostMedia';
+import { EmbeddedMedia } from '../EmbeddedMedia';
 
 type props = {
   post: PostType;
@@ -27,7 +27,7 @@ export function EmbeddedPost({ post }: props) {
         {isLongText ? `${post.body.slice(0, 279)}...` : post.body}
       </Body>
 
-      <PostMedia media={post.media} maxHeight={180} />
+      <EmbeddedMedia media={post.media} maxHeight={180} />
     </EmbeddedBubble>
   );
 }
