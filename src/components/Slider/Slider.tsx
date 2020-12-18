@@ -1,5 +1,6 @@
 import React from 'react';
 import { Transition } from '@headlessui/react';
+import { Heading } from '../Elements/Text';
 
 type props = {
   children: React.ReactNode;
@@ -31,8 +32,13 @@ export function Slider({ children, isOpen, closeSlider }: props) {
             aria-labelledby="slide-over-heading"
           >
             <div className="relative w-screen w-full h-full">
-              <div className="h-full flex flex-col p-6 bg-white shadow-xl rounded-t-2xl">
-                {children}
+              <div className="h-full flex flex-col bg-white shadow-xl rounded-t-2xl">
+                <div className="p-4 bg-blue-600 rounded-t-2xl">
+                  <Heading invert>Thread</Heading>
+                </div>
+                <div className="p-4 overflow-y-scroll touch-scroll h-full">
+                  {children}
+                </div>
               </div>
             </div>
           </section>
@@ -46,8 +52,12 @@ export function Slider({ children, isOpen, closeSlider }: props) {
             aria-labelledby="slide-over-heading"
           >
             <div className="relative w-screen max-w-xl h-full">
-              <div className="h-screen flex flex-col p-8 bg-white shadow-xl rounded-l-2xl">
-                {children}
+              <div className="h-screen flex flex-col bg-white shadow-xl rounded-l-2xl">
+                <div className="p-4 bg-blue-600 rounded-tl-2xl">
+                  <Heading invert>Thread</Heading>
+                </div>
+
+                <div className="p-4 overflow-y-scroll h-full">{children}</div>
               </div>
             </div>
           </section>
