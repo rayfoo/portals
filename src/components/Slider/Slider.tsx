@@ -1,6 +1,15 @@
 import React from 'react';
 import { Transition } from '@headlessui/react';
-import { Heading } from '../Elements/Text';
+import {
+  CornerUpLeft,
+  XCircle,
+  Bookmark,
+  Heart,
+  MessageCircle,
+  AlertOctagon,
+} from 'react-feather';
+import { Heading, Byline } from '../Elements/Text';
+import { useWindowDimensions } from '../utils';
 
 type props = {
   children: React.ReactNode;
@@ -9,6 +18,8 @@ type props = {
 };
 
 export function Slider({ children, isOpen, closeSlider }: props) {
+  const { height } = useWindowDimensions();
+
   return (
     <Transition show={isOpen}>
       <div className="fixed inset-0 overflow-hidden z-40 transition-all">
@@ -22,16 +33,66 @@ export function Slider({ children, isOpen, closeSlider }: props) {
           <div className="md:hidden">
             <section
               className="fixed inset-x-0 bottom-0 max-w-full flex z-50 px-0"
-              style={{ height: 0.9 * window.innerHeight }}
+              style={{ height: 0.95 * height }}
               aria-labelledby="slide-over-heading"
             >
               <div className="relative w-screen w-full h-full">
                 <div className="h-full flex flex-col bg-white shadow-xl rounded-t-2xl">
-                  <div className="p-4 bg-blue-600 rounded-t-2xl">
+                  {/* Heading Section */}
+                  <div className="p-4 bg-blue-600 rounded-t-2xl flex flex-row">
+                    <CornerUpLeft
+                      color="white"
+                      size={24}
+                      className="mr-2 cursor-pointer"
+                    />
                     <Heading invert>Thread</Heading>
+                    <Bookmark
+                      color="white"
+                      size={24}
+                      className="ml-auto cursor-pointer"
+                    />
+                    <XCircle
+                      color="white"
+                      size={24}
+                      className="ml-2 cursor-pointer"
+                      onClick={closeSlider}
+                    />
                   </div>
-                  <div className="p-4 overflow-y-scroll touch-scroll h-full">
+
+                  {/* Main Content */}
+                  <div className="p-4 mb-12 overflow-y-scroll touch-scroll h-full">
                     {children}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="absolute bottom-0 left-0 py-3 px-4 bg-white w-full shadow-invert rounded-bl-2xl flex flex-row justify-around">
+                    <span className="flex flex-row items-center">
+                      <Heart
+                        className="mr-1"
+                        color="#2563EB"
+                        size={14}
+                        strokeWidth={3}
+                      />
+                      <Byline styles="text-blue-600">Upvote</Byline>
+                    </span>
+                    <span className="flex flex-row items-center">
+                      <MessageCircle
+                        className="mr-1"
+                        color="#2563EB"
+                        size={14}
+                        strokeWidth={3}
+                      />
+                      <Byline styles="text-blue-600">Reply</Byline>
+                    </span>
+                    <span className="flex flex-row items-center">
+                      <AlertOctagon
+                        className="mr-1"
+                        color="#2563EB"
+                        size={14}
+                        strokeWidth={3}
+                      />
+                      <Byline styles="text-blue-600">Report</Byline>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -45,11 +106,62 @@ export function Slider({ children, isOpen, closeSlider }: props) {
             >
               <div className="relative w-screen max-w-xl h-full">
                 <div className="h-screen flex flex-col bg-white shadow-xl rounded-l-2xl">
-                  <div className="p-4 bg-blue-600 rounded-tl-2xl">
+                  {/* Heading Section */}
+                  <div className="p-4 bg-blue-600 rounded-tl-2xl flex flex-row">
+                    <CornerUpLeft
+                      color="white"
+                      size={24}
+                      className="mr-2 cursor-pointer"
+                    />
                     <Heading invert>Thread</Heading>
+                    <Bookmark
+                      color="white"
+                      size={24}
+                      className="ml-auto cursor-pointer"
+                    />
+                    <XCircle
+                      color="white"
+                      size={24}
+                      className="ml-2 cursor-pointer"
+                      onClick={closeSlider}
+                    />
                   </div>
 
-                  <div className="p-4 overflow-y-scroll h-full">{children}</div>
+                  {/* Main Content */}
+                  <div className="p-4 mb-12 overflow-y-scroll h-full">
+                    {children}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="absolute bottom-0 left-0 py-3 px-4 bg-white w-full shadow-invert rounded-bl-2xl flex flex-row justify-around">
+                    <span className="flex flex-row items-center">
+                      <Heart
+                        className="mr-1"
+                        color="#2563EB"
+                        size={14}
+                        strokeWidth={3}
+                      />
+                      <Byline styles="text-blue-600">Upvote</Byline>
+                    </span>
+                    <span className="flex flex-row items-center">
+                      <MessageCircle
+                        className="mr-1"
+                        color="#2563EB"
+                        size={14}
+                        strokeWidth={3}
+                      />
+                      <Byline styles="text-blue-600">Reply</Byline>
+                    </span>
+                    <span className="flex flex-row items-center">
+                      <AlertOctagon
+                        className="mr-1"
+                        color="#2563EB"
+                        size={14}
+                        strokeWidth={3}
+                      />
+                      <Byline styles="text-blue-600">Report</Byline>
+                    </span>
+                  </div>
                 </div>
               </div>
             </section>

@@ -1,11 +1,12 @@
 import React from 'react';
+import { ChevronDown } from 'react-feather';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostType } from '../Post';
-import { Reply } from '../Reply';
+import { ReplyContainer } from '../../features/ReplyContainer';
 
 type props = {
   post: PostType;
@@ -43,7 +44,7 @@ export function Thread({ post }: props) {
         )}
       </div>
 
-      <div className="mt-2">
+      <div className="mt-2 relative">
         <div onClick={toggleBodyExpand}>
           <Body clickable>
             {expandState ? post.body : post.body.slice(0, 279)}
@@ -70,18 +71,19 @@ export function Thread({ post }: props) {
             <Byline styles="inline ml-1">Upvotes</Byline>
           </span>
           <span className="float-right">
-            <Title clickable styles="inline underline">
-              Latest Posts v
+            <Title clickable styles="inline">
+              Latest Posts
             </Title>
+            <ChevronDown
+              color="#111827"
+              strokeWidth={3}
+              size={14}
+              className="inline"
+            />
           </span>
         </div>
 
-        <div className="mt-6">
-          <Reply post={post} />
-          <Reply post={post} />
-          <Reply post={post} />
-          <Reply post={post} />
-        </div>
+        <ReplyContainer id="123" />
       </div>
     </div>
   );
