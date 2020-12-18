@@ -18,7 +18,7 @@ function Text({
 
   return (
     <p
-      className={`m-0 p-0 antialiased subpixel-antialised leading-normal ${cursorStyle} ${invertStyle} ${styles}`}
+      className={`m-0 p-0 antialiased subpixel-antialised ${cursorStyle} ${invertStyle} ${styles}`}
     >
       {children}
     </p>
@@ -44,7 +44,7 @@ export function Title({ children, styles = '', ...rest }: TextProps) {
 export function Body({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text
-      styles={`text-sm md:text-base font-normal text-gray-900 ${styles}`}
+      styles={`text-sm md:text-base font-normal text-gray-900 leading-normal ${styles}`}
       {...rest}
     >
       {children}
