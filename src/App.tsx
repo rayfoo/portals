@@ -6,7 +6,7 @@ import { PostList } from './features/PostList';
 import { posts } from './data';
 import { Slider } from './components/Slider';
 import { PostType } from './components/Post';
-import { EmbeddedPost } from './components/EmbeddedPost';
+import { Thread } from './components/Thread';
 
 function App() {
   const state: {
@@ -36,7 +36,7 @@ function App() {
       </Layout>
 
       <Slider isOpen={sliderState.isOpen} closeSlider={closeSlider}>
-        {sliderState.payload && <EmbeddedPost post={sliderState.payload} />}
+        {sliderState.payload && <Thread post={sliderState.payload} />}
       </Slider>
     </div>
   );
