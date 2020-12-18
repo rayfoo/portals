@@ -44,7 +44,7 @@ export function Title({ children, styles = '', ...rest }: TextProps) {
 export function Body({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text
-      styles={`text-sm md:text-base font-normal text-gray-900 leading-normal ${styles}`}
+      styles={`text-sm md:text-base font-normal text-gray-900 leading-snug md:leading-normal ${styles}`}
       {...rest}
     >
       {children}
