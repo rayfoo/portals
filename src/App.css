@@ -21,13 +21,12 @@ body::-webkit-scrollbar {
 /* Prevent scroll when modal is open on ios */
 body.modal-open {
   overflow-y: hidden;
-  position: fixed;
   -webkit-overflow-scrolling: auto;
   touch-action: none;
   -ms-touch-action: none;
 }
 
 .touch-scroll {
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
