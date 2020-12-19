@@ -74,29 +74,29 @@ export function Slider({ children }: props) {
                     <span className="flex flex-row items-center">
                       <Heart
                         className="mr-1"
-                        color="#2563EB"
+                        color="#111827"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-blue-600">Upvote</Byline>
+                      <Byline styles="text-gray-900">Upvote</Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <MessageCircle
                         className="mr-1"
-                        color="#2563EB"
+                        color="#111827"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-blue-600">Reply</Byline>
+                      <Byline styles="text-gray-900">Reply</Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <AlertOctagon
                         className="mr-1"
-                        color="#2563EB"
+                        color="#111827"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-blue-600">Report</Byline>
+                      <Byline styles="text-gray-900">Report</Byline>
                     </span>
                   </div>
                 </div>
@@ -144,29 +144,29 @@ export function Slider({ children }: props) {
                     <span className="flex flex-row items-center">
                       <Heart
                         className="mr-1"
-                        color="#2563EB"
+                        color="#111827"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-blue-600">Upvote</Byline>
+                      <Byline styles="text-gray-900">Upvote</Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <MessageCircle
                         className="mr-1"
-                        color="#2563EB"
+                        color="#111827"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-blue-600">Reply</Byline>
+                      <Byline styles="text-gray-900">Reply</Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <AlertOctagon
                         className="mr-1"
-                        color="#2563EB"
+                        color="#111827"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-blue-600">Report</Byline>
+                      <Byline styles="text-gray-900">Report</Byline>
                     </span>
                   </div>
                 </div>
