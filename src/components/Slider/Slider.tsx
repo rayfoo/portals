@@ -10,18 +10,21 @@ import {
 } from 'react-feather';
 import { Heading, Byline } from '../Elements/Text';
 import { useWindowDimensions } from '../utils';
+import { context } from '../../store';
 
 type props = {
   children: React.ReactNode;
-  isOpen: boolean;
-  closeSlider: () => void;
 };
 
-export function Slider({ children, isOpen, closeSlider }: props) {
+export function Slider({ children }: props) {
+  const { state, dispatch } = React.useContext(context);
+
+  const closeSlider = () => dispatch({ type: 'slider/close', payload: null });
+
   const { height } = useWindowDimensions();
 
   return (
-    <Transition show={isOpen}>
+    <Transition show={state.slider.isOpen}>
       <div className="fixed inset-0 overflow-hidden z-40 transition-all">
         <div className="absolute inset-0 transition-opacity" aria-hidden="true">
           <div
@@ -40,11 +43,13 @@ export function Slider({ children, isOpen, closeSlider }: props) {
                 <div className="h-full flex flex-col bg-white shadow-xl rounded-t-2xl">
                   {/* Heading Section */}
                   <div className="p-4 bg-blue-600 rounded-t-2xl flex flex-row">
-                    <CornerUpLeft
-                      color="white"
-                      size={24}
-                      className="mr-2 cursor-pointer"
-                    />
+                    {state.currentPost > 0 && (
+                      <CornerUpLeft
+                        color="white"
+                        size={24}
+                        className="mr-2 cursor-pointer"
+                      />
+                    )}
                     <Heading invert>Thread</Heading>
                     <Bookmark
                       color="white"
@@ -108,11 +113,13 @@ export function Slider({ children, isOpen, closeSlider }: props) {
                 <div className="h-screen flex flex-col bg-white shadow-xl rounded-l-2xl">
                   {/* Heading Section */}
                   <div className="p-4 bg-blue-600 rounded-tl-2xl flex flex-row">
-                    <CornerUpLeft
-                      color="white"
-                      size={24}
-                      className="mr-2 cursor-pointer"
-                    />
+                    {state.currentPost > 0 && (
+                      <CornerUpLeft
+                        color="white"
+                        size={24}
+                        className="mr-2 cursor-pointer"
+                      />
+                    )}
                     <Heading invert>Thread</Heading>
                     <Bookmark
                       color="white"

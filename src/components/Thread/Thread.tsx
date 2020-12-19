@@ -5,14 +5,13 @@ import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
-import { PostType } from '../Post';
 import { ReplyContainer } from '../../features/ReplyContainer';
+import { context } from '../../store';
 
-type props = {
-  post: PostType;
-};
-
-export function Thread({ post }: props) {
+export function Thread() {
+  const { state } = React.useContext(context);
+  const { posts, currentPost } = state;
+  const post = posts[currentPost];
   const isExpandable = post.body.length > 280;
 
   const [expandState, setExpandState] = React.useState(!isExpandable);

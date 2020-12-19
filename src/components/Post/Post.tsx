@@ -6,11 +6,10 @@ import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
+import { context } from '../../store';
 
 type PostProps = {
   post: PostType;
-  children?: React.ReactNode;
-  openSlider: (payload: any) => void;
 };
 
 type ContentProps = {
@@ -19,10 +18,13 @@ type ContentProps = {
   post: PostType;
 };
 
-export function Post({ post, children, openSlider }: PostProps) {
+export function Post({ post }: PostProps) {
   const isExpandable = post.body.length > 280;
 
   const [expandState, setExpandState] = React.useState(!isExpandable);
+  const { dispatch } = React.useContext(context);
+  const openSlider = (post: PostType) =>
+    dispatch({ type: 'slider/open', payload: post });
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
 
@@ -65,7 +67,10 @@ export function Post({ post, children, openSlider }: PostProps) {
 
           <div className="mt-2">
             {post.parent ? (
-              <EmbeddedPostContainer id={post.parent} onClick={openSlider} />
+              <EmbeddedPostContainer
+                id={post.parent}
+                onClick={() => openSlider(post)}
+              />
             ) : (
               <EmbeddedMedia media={post.media} />
             )}

@@ -3,14 +3,13 @@ import { Post, PostType } from '../../components/Post';
 
 type props = {
   posts: PostType[];
-  openSlider: (payload: any) => void;
 };
 
-export function PostList({ posts, openSlider }: props) {
+export function PostList({ posts }: props) {
   return (
     <>
       {posts.map((post) => (
-        <Post key={post.id} post={post} openSlider={openSlider} />
+        <Post key={post.id} post={post} />
       ))}
     </>
   );
