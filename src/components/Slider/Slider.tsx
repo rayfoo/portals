@@ -140,33 +140,39 @@ export function Slider({ children }: props) {
                   </div>
 
                   {/* Footer */}
-                  <div className="absolute bottom-0 left-0 py-3 px-4 bg-white w-full shadow-invert rounded-bl-2xl flex flex-row justify-around">
+                  <div className="absolute bottom-0 left-0 py-3 px-4 bg-white w-full shadow-invert rounded-bl-2xl flex flex-row justify-around cursor-pointer">
                     <span className="flex flex-row items-center">
                       <Heart
                         className="mr-1"
-                        color="#111827"
+                        color="#6B7280"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-gray-900">Upvote</Byline>
+                      <Byline clickable styles="text-gray-500 font-semibold">
+                        Upvote
+                      </Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <MessageCircle
                         className="mr-1"
-                        color="#111827"
+                        color="#6B7280"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-gray-900">Reply</Byline>
+                      <Byline clickable styles="text-gray-500 font-semibold">
+                        Reply
+                      </Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <AlertOctagon
                         className="mr-1"
-                        color="#111827"
+                        color="#6B7280"
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-gray-900">Report</Byline>
+                      <Byline clickable styles="text-gray-500 font-semibold">
+                        Report
+                      </Byline>
                     </span>
                   </div>
                 </div>
