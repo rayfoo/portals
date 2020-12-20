@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
 import { Store } from './store';
@@ -7,7 +8,7 @@ import { PostList } from './features/PostList';
 import { posts } from './data';
 import { Slider } from './components/Slider';
 import { Thread } from './components/Thread';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { InputBox } from './components/InputBox';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <Router>
         <div className="app">
           <Layout>
+            <InputBox />
+
             <Switch>
               <Route path="/test">
                 <h1>Another route</h1>
