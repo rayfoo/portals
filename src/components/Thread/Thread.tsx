@@ -44,11 +44,9 @@ export function Thread() {
       </div>
 
       <div className="mt-2 relative">
-        <div onClick={toggleBodyExpand}>
-          <Body clickable>
-            {expandState ? post.body : post.body.slice(0, 279)}
-          </Body>
-        </div>
+        <Body clickable>
+          {expandState ? post.body : post.body.slice(0, 279)}
+        </Body>
 
         {isExpandable && Expandable}
 
