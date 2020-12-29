@@ -5,7 +5,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      gray: colors.trueGray,
+      gray: colors.coolGray,
       red: colors.red,
       white: '#ffffff',
       blue: colors.blue,
@@ -18,6 +18,11 @@ module.exports = {
       sm: '14px',
       base: '15px',
       lg: '16px',
+      xl: '18px',
+    },
+    boxShadow: {
+      invert:
+        '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
     },
     extend: {
       zIndex: {

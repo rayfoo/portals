@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { Title, Body, Byline, Minion } from '../Elements/Text';
+import { Title, Body, BodyTitle, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
+import { context } from '../../store';
+import { PostParser } from '../PostParser';
 
 type PostProps = {
   post: PostType;
-  children?: React.ReactNode;
-  openSlider: (payload: any) => void;
 };
 
 type ContentProps = {
@@ -19,10 +19,13 @@ type ContentProps = {
   post: PostType;
 };
 
-export function Post({ post, children, openSlider }: PostProps) {
+export function Post({ post }: PostProps) {
   const isExpandable = post.body.length > 280;
 
   const [expandState, setExpandState] = React.useState(!isExpandable);
+  const { dispatch } = React.useContext(context);
+  const openSlider = (post: PostType) =>
+    dispatch({ type: 'slider/open', payload: post });
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
 
@@ -54,18 +57,26 @@ export function Post({ post, children, openSlider }: PostProps) {
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
       <Content header={Header} post={post}>
-        <PostBubble>
-          <div onClick={openSlider}>
-            <Body clickable>
-              {expandState ? post.body : post.body.slice(0, 279)}
-            </Body>
+        <PostBubble styles={`${post.replies && 'shadow-lg'}`}>
+          <PostParser>
+            <BodyTitle styles="mb-1">{post.title} </BodyTitle>
+          </PostParser>
+          <div onClick={() => openSlider(post)}>
+            <PostParser>
+              <Body clickable>
+                {expandState ? post.body : post.body.slice(0, 279)}
+              </Body>
+            </PostParser>
           </div>
 
           {isExpandable && Expandable}
 
           <div className="mt-2">
             {post.parent ? (
-              <EmbeddedPostContainer id={post.parent} onClick={openSlider} />
+              <EmbeddedPostContainer
+                id={post.parent}
+                onClick={() => openSlider(post)}
+              />
             ) : (
               <EmbeddedMedia media={post.media} />
             )}
@@ -99,7 +110,7 @@ export function Replies({ count }: { count: number }) {
 export function Content({ header, post, children }: ContentProps) {
   return (
     <div className="ml-2 flex flex-col flex-grow">
-      <div className="mb-2">{header}</div>
+      <div className="mb-1 md:mb-2">{header}</div>
 
       {children}
 
