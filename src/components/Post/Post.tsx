@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Title, Body, Byline, Minion } from '../Elements/Text';
+import { Title, Body, BodyTitle, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
@@ -57,6 +57,7 @@ export function Post({ post }: PostProps) {
 
       <Content header={Header} post={post}>
         <PostBubble styles={`${post.replies && 'shadow-lg'}`}>
+          <BodyTitle styles="mb-1">{post.title} </BodyTitle>
           <div onClick={() => openSlider(post)}>
             <Body clickable>
               {expandState ? post.body : post.body.slice(0, 279)}

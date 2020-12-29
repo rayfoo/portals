@@ -10,6 +10,7 @@ export type PostType = {
     name: string;
     url: string;
   };
+  title: string;
   body: string;
   media: {
     images: string[] | [];

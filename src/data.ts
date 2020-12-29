@@ -13,9 +13,10 @@ const post: PostType = {
     name: 'IWantToLearn',
     url: 'reddit.com',
   },
+  title: `Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque`,
   body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eleifend ex, vel finibus dolor. Donec ac pellentesque ipsum. Vivamus vel efficitur odio, ut feugiat libero. Aliquam elit mi, condimentum in mattis et, malesuada in diam. Sed pellentesque, libero vel tincidunt varius, metus metus maximus est, ut tempus sapien nunc nec dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis cursus mollis lacus, sit amet tristique odio efficitur id.Donec sit amet lorem ipsum. In orci sem, fermentum ac tellus ut, cursus semper dui. Fusce feugiat augue et odio dapibus, vitae tempor arcu malesuada.
 
-  Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque. Phasellus eget vulputate mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis in felis est. Suspendisse finibus accumsan tincidunt. Pellentesque fringilla neque tellus, sit amet vestibulum enim pellentesque vitae. Etiam rhoncus finibus libero. Aliquam iaculis sodales dolor, vel suscipit felis laoreet in. Quisque nibh risus, ultricies non risus in, maximus gravida lacus. Aenean convallis quam diam, in congue dui gravida vitae.`,
+ Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque. Phasellus eget vulputate mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis in felis est. Suspendisse finibus accumsan tincidunt. Pellentesque fringilla neque tellus, sit amet vestibulum enim pellentesque vitae. Etiam rhoncus finibus libero. Aliquam iaculis sodales dolor, vel suscipit felis laoreet in. Quisque nibh risus, ultricies non risus in, maximus gravida lacus. Aenean convallis quam diam, in congue dui gravida vitae.`,
   media: {
     images: [
       'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGRvZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
@@ -42,6 +43,7 @@ const post2: PostType = {
     name: 'AwesomeAnimals',
     url: 'reddit.com',
   },
+  title: `Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque`,
   body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eleifend ex, vel finibus dolor. Donec ac pellentesque ipsum. Vivamus vel efficitur odio, `,
   media: {
     images: [
@@ -66,6 +68,7 @@ const post3: PostType = {
     name: 'AwesomeAnimals',
     url: 'reddit.com',
   },
+  title: `Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque`,
   body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eleifend ex, vel finibus dolor. Donec ac pellentesque ipsum. Vivamus vel efficitur odio, ut feugiat libero. Aliquam elit mi, condimentum in mattis et, malesuada in diam. Sed pellentesque, libero vel tincidunt varius, metus metus maximus est, ut tempus sapien nunc nec dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis cursus mollis lacus, sit amet tristique odio efficitur id.Donec sit amet lorem ipsum. In orci sem, fermentum ac tellus ut, cursus semper dui. Fusce feugiat augue et odio dapibus, vitae tempor arcu malesuada.
 
   Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque. Phasellus eget vulputate mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis in felis est. Suspendisse finibus accumsan tincidunt. Pellentesque fringilla neque tellus, sit amet vestibulum enim pellentesque vitae. Etiam rhoncus finibus libero. Aliquam iaculis sodales dolor, vel suscipit felis laoreet in. Quisque nibh risus, ultricies non risus in, maximus gravida lacus. Aenean convallis quam diam, in congue dui gravida vitae.`,
@@ -94,6 +97,7 @@ export const parent: PostType = {
     name: 'IWantToLearn',
     url: 'reddit.com',
   },
+  title: `Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque`,
   body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eleifend ex, vel finibus dolor. Donec ac pellentesque ipsum. Vivamus vel efficitur odio, ut feugiat libero. Aliquam elit mi, condimentum in mattis et, malesuada in diam. Sed pellentesque, libero vel tincidunt varius, metus metus maximus est, ut tempus sapien nunc nec dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis cursus mollis lacus, sit amet tristique odio efficitur id.Donec sit amet lorem ipsum. In orci sem, fermentum ac tellus ut, cursus semper dui. Fusce feugiat augue et odio dapibus, vitae tempor arcu malesuada.
 
   Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque. Phasellus eget vulputate mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis in felis est. Suspendisse finibus accumsan tincidunt. Pellentesque fringilla neque tellus, sit amet vestibulum enim pellentesque vitae. Etiam rhoncus finibus libero. Aliquam iaculis sodales dolor, vel suscipit felis laoreet in. Quisque nibh risus, ultricies non risus in, maximus gravida lacus. Aenean convallis quam diam, in congue dui gravida vitae.`,
@@ -123,6 +127,7 @@ export const reply: PostType = {
     name: 'IWantToLearn',
     url: 'reddit.com',
   },
+  title: `Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque`,
   body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget eleifend ex, vel finibus dolor. Donec ac pellentesque ipsum. Vivamus vel efficitur odio, ut feugiat libero. Aliquam elit mi, condimentum in mattis et, malesuada in diam. Sed pellentesque, libero vel tincidunt varius, metus metus maximus est, ut tempus sapien nunc nec dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis cursus mollis lacus, sit amet tristique odio efficitur id.Donec sit amet lorem ipsum. In orci sem, fermentum ac tellus ut, cursus semper dui. Fusce feugiat augue et odio dapibus, vitae tempor arcu malesuada.
 
   Morbi fermentum commodo nulla at tincidunt. Praesent eu fermentum neque. Phasellus eget vulputate mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis in felis est. Suspendisse finibus accumsan tincidunt. Pellentesque fringilla neque tellus, sit amet vestibulum enim pellentesque vitae. Etiam rhoncus finibus libero. Aliquam iaculis sodales dolor, vel suscipit felis laoreet in. Quisque nibh risus, ultricies non risus in, maximus gravida lacus. Aenean convallis quam diam, in congue dui gravida vitae.`,

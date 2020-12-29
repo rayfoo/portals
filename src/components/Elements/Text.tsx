@@ -41,10 +41,21 @@ export function Title({ children, styles = '', ...rest }: TextProps) {
   );
 }
 
+export function BodyTitle({ children, styles = '', ...rest }: TextProps) {
+  return (
+    <Text
+      styles={`text-base font-medium text-gray-800 leading-snug md:leading-normal wrap-body ${styles}`}
+      {...rest}
+    >
+      {children}
+    </Text>
+  );
+}
+
 export function Body({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text
-      styles={`text-sm md:text-base font-normal text-gray-800 leading-snug md:leading-normal ${styles}`}
+      styles={`text-base font-normal text-gray-800 leading-normal wrap-body ${styles}`}
       {...rest}
     >
       {children}
@@ -65,7 +76,7 @@ export function Byline({ children, styles = '', ...rest }: TextProps) {
 
 export function Minion({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`text-sm font-semibold text-gray-400 ${styles}`} {...rest}>
+    <Text styles={`text-xs font-semibold text-gray-400 ${styles}`} {...rest}>
       {children}
     </Text>
   );
