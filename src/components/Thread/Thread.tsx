@@ -7,6 +7,7 @@ import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { ReplyContainer } from '../../features/ReplyContainer';
 import { context } from '../../store';
+import { PostParser } from '../PostParser';
 
 export function Thread() {
   const { state } = React.useContext(context);
@@ -44,9 +45,11 @@ export function Thread() {
       </div>
 
       <div className="mt-2 relative">
-        <Body clickable>
-          {expandState ? post.body : post.body.slice(0, 279)}
-        </Body>
+        <PostParser>
+          <Body clickable>
+            {expandState ? post.body : post.body.slice(0, 279)}
+          </Body>
+        </PostParser>
 
         {isExpandable && Expandable}
 

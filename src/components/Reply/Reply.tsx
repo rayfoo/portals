@@ -4,6 +4,7 @@ import { Title, Body, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { PostBubble } from '../PostBubble';
 import { PostType } from '../Post';
+import { PostParser } from '../PostParser';
 
 type PostProps = {
   post: PostType;
@@ -46,9 +47,11 @@ export function Reply({ post }: PostProps) {
 
       <Content header={Header} post={post}>
         <PostBubble>
-          <Body clickable>
-            {expandState ? post.body : post.body.slice(0, 279)}
-          </Body>
+          <PostParser>
+            <Body clickable>
+              {expandState ? post.body : post.body.slice(0, 279)}
+            </Body>
+          </PostParser>
 
           {isExpandable && Expandable}
         </PostBubble>

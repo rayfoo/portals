@@ -38,3 +38,16 @@ body.modal-open {
 .wrap-body {
   white-space: pre-wrap;
 }
+
+.linkify_highlight {
+  font-weight: 500;
+  color: #2563eb;
+  padding: 1px 6px 2px 6px;
+  border-radius: 12px;
+  background-color: #dbeafe;
+}
+
+.linkify_highlight--url {
+  font-weight: 500;
+  color: #2563eb;
+}

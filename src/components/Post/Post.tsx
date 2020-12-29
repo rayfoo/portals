@@ -7,6 +7,7 @@ import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
 import { context } from '../../store';
+import { PostParser } from '../PostParser';
 
 type PostProps = {
   post: PostType;
@@ -57,11 +58,15 @@ export function Post({ post }: PostProps) {
 
       <Content header={Header} post={post}>
         <PostBubble styles={`${post.replies && 'shadow-lg'}`}>
-          <BodyTitle styles="mb-1">{post.title} </BodyTitle>
+          <PostParser>
+            <BodyTitle styles="mb-1">{post.title} </BodyTitle>
+          </PostParser>
           <div onClick={() => openSlider(post)}>
-            <Body clickable>
-              {expandState ? post.body : post.body.slice(0, 279)}
-            </Body>
+            <PostParser>
+              <Body clickable>
+                {expandState ? post.body : post.body.slice(0, 279)}
+              </Body>
+            </PostParser>
           </div>
 
           {isExpandable && Expandable}
