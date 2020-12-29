@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bold, Italic, Underline, List, Image, Video } from 'react-feather';
+import { Image, Video } from 'react-feather';
 import { Avatar } from '../Elements/Avatar';
 import { Byline } from '../Elements/Text';
 import { TextArea } from '../TextArea';

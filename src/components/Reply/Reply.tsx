@@ -60,25 +60,25 @@ export function Reply({ post }: PostProps) {
   );
 }
 
-function Replies({ count }: { count: number }) {
-  const NoReplies = (
-    <Minion clickable styles="ml-auto mt-1 pr-2">
-      Reply
-    </Minion>
-  );
+// function Replies({ count }: { count: number }) {
+//   const NoReplies = (
+//     <Minion clickable styles="ml-auto mt-1 pr-2">
+//       Reply
+//     </Minion>
+//   );
 
-  const HasReplies = (
-    <div
-      className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl -z-10`}
-    >
-      <Minion clickable invert styles="float-right">
-        {count} replies
-      </Minion>
-    </div>
-  );
+//   const HasReplies = (
+//     <div
+//       className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl -z-10`}
+//     >
+//       <Minion clickable invert styles="float-right">
+//         {count} replies
+//       </Minion>
+//     </div>
+//   );
 
-  return <>{count ? HasReplies : NoReplies}</>;
-}
+//   return <>{count ? HasReplies : NoReplies}</>;
+// }
 
 function Content({ header, post, children }: ContentProps) {
   return (
