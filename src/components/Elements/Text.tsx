@@ -27,7 +27,7 @@ function Text({
 
 export function Heading({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`text-xl font-bold text-gray-900 ${styles}`} {...rest}>
+    <Text styles={`text-xl font-semibold text-gray-800 ${styles}`} {...rest}>
       {children}
     </Text>
   );
@@ -35,7 +35,7 @@ export function Heading({ children, styles = '', ...rest }: TextProps) {
 
 export function Title({ children, styles = '', ...rest }: TextProps) {
   return (
-    <Text styles={`text-base font-semibold text-gray-900 ${styles}`} {...rest}>
+    <Text styles={`text-base font-semibold text-gray-800 ${styles}`} {...rest}>
       {children}
     </Text>
   );
@@ -44,7 +44,7 @@ export function Title({ children, styles = '', ...rest }: TextProps) {
 export function Body({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text
-      styles={`text-sm md:text-base font-normal text-gray-900 leading-snug md:leading-normal ${styles}`}
+      styles={`text-sm md:text-base font-normal text-gray-800 leading-snug md:leading-normal ${styles}`}
       {...rest}
     >
       {children}

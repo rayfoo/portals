@@ -78,7 +78,9 @@ export function Slider({ children }: props) {
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-gray-900">Upvote</Byline>
+                      <Byline clickable styles="text-gray-500 font-medium">
+                        Upvote
+                      </Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <MessageCircle
@@ -87,7 +89,9 @@ export function Slider({ children }: props) {
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-gray-900">Reply</Byline>
+                      <Byline clickable styles="text-gray-500 font-medium">
+                        Reply
+                      </Byline>
                     </span>
                     <span className="flex flex-row items-center">
                       <AlertOctagon
@@ -96,7 +100,9 @@ export function Slider({ children }: props) {
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline styles="text-gray-900">Report</Byline>
+                      <Byline clickable styles="text-gray-500 font-medium">
+                        Report
+                      </Byline>
                     </span>
                   </div>
                 </div>
@@ -148,7 +154,7 @@ export function Slider({ children }: props) {
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline clickable styles="text-gray-500 font-semibold">
+                      <Byline clickable styles="text-gray-500 font-medium">
                         Upvote
                       </Byline>
                     </span>
@@ -159,7 +165,7 @@ export function Slider({ children }: props) {
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline clickable styles="text-gray-500 font-semibold">
+                      <Byline clickable styles="text-gray-500 font-medium">
                         Reply
                       </Byline>
                     </span>
@@ -170,7 +176,7 @@ export function Slider({ children }: props) {
                         size={14}
                         strokeWidth={3}
                       />
-                      <Byline clickable styles="text-gray-500 font-semibold">
+                      <Byline clickable styles="text-gray-500 font-medium">
                         Report
                       </Byline>
                     </span>
