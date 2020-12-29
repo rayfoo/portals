@@ -9,9 +9,9 @@ import {
   AlertOctagon,
 } from 'react-feather';
 
-import { useThread } from '../../hooks/useThread';
+import { useThread } from '../../hooks';
 import { Heading, Byline } from '../Elements/Text';
-import { useWindowDimensions } from '../utils';
+import { useWindowDimensions } from '../../hooks';
 
 type props = {
   children: React.ReactNode;

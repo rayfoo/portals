@@ -9,7 +9,7 @@ import {
   AlertOctagon,
 } from 'react-feather';
 import { Heading, Byline } from '../Elements/Text';
-import { useWindowDimensions } from '../utils';
+import { useWindowDimensions } from '../../hooks';
 import { context } from '../../store';
 
 type props = {

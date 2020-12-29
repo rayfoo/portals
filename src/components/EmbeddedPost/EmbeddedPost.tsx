@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useThread } from '../../hooks/useThread';
+import { useThread } from '../../hooks';
 import { Body, Title, Byline } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { PostType } from '../Post';

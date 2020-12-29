@@ -7,7 +7,7 @@ import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
 import { PostParser } from '../PostParser';
-import { useThread } from '../../hooks/useThread';
+import { useThread } from '../../hooks';
 
 type PostProps = {
   post: PostType;
