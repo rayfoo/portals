@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { useThread } from '../../hooks/useThread';
 import { Body, Title, Byline } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { PostType } from '../Post';
@@ -14,10 +16,9 @@ type props = {
 export function EmbeddedPost({ post, onClick, media = true }: props) {
   const isLongText = post.body.length > 280;
 
-  const handleClick = (post: PostType) => {
-    if (onClick) {
-      onClick(post);
-    }
+  const { nextPost } = useThread();
+  const launchThreadView = () => {
+    nextPost(post);
   };
 
   return (
@@ -30,7 +31,7 @@ export function EmbeddedPost({ post, onClick, media = true }: props) {
         <Byline clickable styles="inline">{` in ${post.postedIn.name}`}</Byline>
       </span>
 
-      <div onClick={() => handleClick(post)}>
+      <div onClick={launchThreadView}>
         <Body clickable styles="mt-1">
           {isLongText ? `${post.body.slice(0, 279)}...` : post.body}
         </Body>

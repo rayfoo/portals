@@ -6,7 +6,7 @@ import { Store } from './store';
 import { Layout } from './components/Layout';
 import { PostList } from './features/PostList';
 import { posts } from './data';
-import { Slider } from './components/Slider';
+import { MobileSlider } from './components/Slider';
 import { Thread } from './components/Thread';
 import { InputBox } from './components/InputBox';
 
@@ -29,11 +29,11 @@ function App() {
             </Switch>
           </Layout>
 
-          <Route path="/">
-            <Slider>
+          <MobileSlider>
+            <Route path="/">
               <Thread />
-            </Slider>
-          </Route>
+            </Route>
+          </MobileSlider>
         </div>
       </Router>
     </Store>

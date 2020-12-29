@@ -6,8 +6,8 @@ import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { PostBubble } from '../PostBubble';
 import { PostType } from './types';
-import { context } from '../../store';
 import { PostParser } from '../PostParser';
+import { useThread } from '../../hooks/useThread';
 
 type PostProps = {
   post: PostType;
@@ -21,13 +21,12 @@ type ContentProps = {
 
 export function Post({ post }: PostProps) {
   const isExpandable = post.body.length > 280;
-
   const [expandState, setExpandState] = React.useState(!isExpandable);
-  const { dispatch } = React.useContext(context);
-  const openSlider = (post: PostType) =>
-    dispatch({ type: 'slider/open', payload: post });
-
+  const { nextPost } = useThread();
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
+  const launchThreadView = () => {
+    nextPost(post);
+  };
 
   const Header = (
     <>
@@ -41,31 +40,31 @@ export function Post({ post }: PostProps) {
   );
 
   const Expandable = (
-    <div onClick={toggleBodyExpand}>
+    <span onClick={toggleBodyExpand} className="inline">
       {expandState ? (
-        <Minion clickable>Show less</Minion>
+        <Minion clickable styles="inline">
+          Show less
+        </Minion>
       ) : (
-        <Minion clickable styles="text-blue-600">
+        <Minion clickable styles="text-blue-600 inline">
           Show more
         </Minion>
       )}
-    </div>
+    </span>
   );
 
   return (
-    <div className="flex flex-row mb-8">
+    <article className="flex flex-row mb-8">
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
       <Content header={Header} post={post}>
         <PostBubble styles={`${post.replies && 'shadow-lg'}`}>
-          <PostParser>
-            <BodyTitle styles="mb-1">{post.title} </BodyTitle>
-          </PostParser>
-          <div onClick={() => openSlider(post)}>
+          <div onClick={launchThreadView}>
             <PostParser>
-              <Body clickable>
-                {expandState ? post.body : post.body.slice(0, 279)}
-              </Body>
+              <BodyTitle styles="mb-1">{post.title} </BodyTitle>
+            </PostParser>
+            <PostParser>
+              <Body>{expandState ? post.body : post.body.slice(0, 279)}</Body>
             </PostParser>
           </div>
 
@@ -73,17 +72,14 @@ export function Post({ post }: PostProps) {
 
           <div className="mt-2">
             {post.parent ? (
-              <EmbeddedPostContainer
-                id={post.parent}
-                onClick={() => openSlider(post)}
-              />
+              <EmbeddedPostContainer id={post.parent} />
             ) : (
               <EmbeddedMedia media={post.media} />
             )}
           </div>
         </PostBubble>
       </Content>
-    </div>
+    </article>
   );
 }
 

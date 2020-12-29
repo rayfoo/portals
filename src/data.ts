@@ -86,7 +86,7 @@ const post3: PostType = {
 };
 
 export const parent: PostType = {
-  id: '1',
+  id: '0',
   parent: '',
   user: {
     handle: '@somedude',
@@ -116,7 +116,7 @@ export const parent: PostType = {
 };
 
 export const reply: PostType = {
-  id: '1',
+  id: '5',
   parent: 'post123',
   user: {
     handle: '@somenewperson',

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useThread } from '../../hooks/useThread';
 import { Title, Body, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { PostBubble } from '../PostBubble';
@@ -81,8 +82,13 @@ export function Reply({ post }: PostProps) {
 // }
 
 function Content({ header, post, children }: ContentProps) {
+  const { nextPost } = useThread();
+  const launchThreadView = () => {
+    nextPost(post);
+  };
+
   return (
-    <div className="ml-2 flex flex-col flex-grow">
+    <div className="ml-2 flex flex-col flex-grow" onClick={launchThreadView}>
       <div className="mb-1 md:mb-2">{header}</div>
 
       {children}

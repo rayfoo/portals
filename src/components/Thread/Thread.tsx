@@ -1,18 +1,18 @@
 import React from 'react';
 import { ChevronDown } from 'react-feather';
+import { useLocation } from 'react-router-dom';
 
 import { Title, Body, Byline, Minion } from '../Elements/Text';
 import { Avatar } from '../Elements/Avatar';
 import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { ReplyContainer } from '../../features/ReplyContainer';
-import { context } from '../../store';
 import { PostParser } from '../PostParser';
 
 export function Thread() {
-  const { state } = React.useContext(context);
-  const { posts, currentPost } = state;
-  const post = posts[currentPost];
+  const post = useLocation().state?.currentPost;
+  // TODO: Fetch the post if it's not available in current state
+
   const isExpandable = post.body.length > 280;
 
   const [expandState, setExpandState] = React.useState(!isExpandable);
