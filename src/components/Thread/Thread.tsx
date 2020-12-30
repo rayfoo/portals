@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ChevronDown } from 'react-feather';
 import { useLocation } from 'react-router-dom';
 
@@ -8,13 +8,26 @@ import { EmbeddedMedia } from '../EmbeddedMedia';
 import { EmbeddedPostContainer } from '../../features/EmbeddedPostContainer';
 import { ReplyContainer } from '../../features/ReplyContainer';
 import { PostParser } from '../PostParser';
+import { useRouter } from '../../hooks';
 
 export function Thread() {
-  const post = useLocation().state?.currentPost;
-  // TODO: Fetch the post if it's not available in current state
+  const { getQuery } = useRouter();
+  const postID = getQuery('postID');
+  let post = useLocation().state?.currentPost;
+  const scrollableRef = React.createRef();
+
+  useEffect(() => {
+    if (scrollableRef.current) {
+      // @ts-ignore
+      scrollableRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+    // TODO: Fetch the post if it's not available in current state
+  }, [postID]);
 
   const isExpandable = post.body.length > 280;
-
   const [expandState, setExpandState] = React.useState(!isExpandable);
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
@@ -32,8 +45,9 @@ export function Thread() {
   );
 
   return (
-    <div>
-      <div className="">
+    // @ts-ignore
+    <div ref={scrollableRef} className="p-4">
+      <div>
         <Avatar url={post.user.avatarURL} alt="user avatar" />
 
         <Title styles="inline ml-2">{post.user.handle}</Title>
@@ -43,7 +57,6 @@ export function Thread() {
           <Byline styles="inline">{` in ${post.postedIn.name}`}</Byline>
         )}
       </div>
-
       <div className="mt-2 relative">
         <PostParser>
           <Body clickable>
