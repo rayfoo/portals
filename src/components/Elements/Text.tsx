@@ -42,7 +42,7 @@ export function Heading({ children, className = '', ...rest }: TextProps) {
 export function Title({ children, className = '', ...rest }: TextProps) {
   return (
     <Text
-      className={`text-base font-semibold text-gray-800 ${className}`}
+      className={`text-sm lg:text-base font-semibold text-gray-800 ${className}`}
       {...rest}
     >
       {children}
@@ -53,7 +53,7 @@ export function Title({ children, className = '', ...rest }: TextProps) {
 export function BodyTitle({ children, className = '', ...rest }: TextProps) {
   return (
     <Text
-      className={`text-base font-medium text-gray-800 leading-snug lg:leading-normal wrap-body ${className}`}
+      className={`text-sm lg:text-base font-medium text-gray-800 leading-snug lg:leading-normal wrap-body ${className}`}
       {...rest}
     >
       {children}
@@ -64,7 +64,7 @@ export function BodyTitle({ children, className = '', ...rest }: TextProps) {
 export function Body({ children, className = '', ...rest }: TextProps) {
   return (
     <Text
-      className={`text-base font-normal text-gray-800 leading-normal wrap-body ${className}`}
+      className={`text-sm lg:text-base font-normal text-gray-800 leading-normal wrap-body ${className}`}
       {...rest}
     >
       {children}

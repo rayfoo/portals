@@ -18,8 +18,6 @@ function App() {
       <Router>
         <div className="app">
           <Layout>
-            <InputBox />
-
             <Switch>
               <Route path="/test">
                 <h1>Another route</h1>
@@ -41,7 +39,9 @@ function App() {
             </Route>
           </Switch>
 
-          <Fab />
+          <div className="hidden lg:contents">
+            <Fab />
+          </div>
         </div>
       </Router>
     </Store>
