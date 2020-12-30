@@ -10,7 +10,7 @@ export function Fab() {
       icon={<Edit />}
       alwaysShowTitle={true}
       mainButtonStyles={{ backgroundColor: '#1D4ED8', outline: 'none' }}
-      style={{ bottom: 0, right: 0 }}
+      style={{ bottom: 0, right: 0, zIndex: 30 }}
       onClick={() => goTo('/new/post')}
     />
   );
