@@ -1,4 +1,3 @@
-import React from 'react';
 import { PostType } from '../components/Post';
 import { useHistory } from 'react-router-dom';
 

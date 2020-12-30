@@ -25,7 +25,7 @@ export function Thread() {
       });
     }
     // TODO: Fetch the post if it's not available in current state
-  }, [postID]);
+  }, [postID, scrollableRef]);
 
   const isExpandable = post.body.length > 280;
   const [expandState, setExpandState] = React.useState(!isExpandable);
