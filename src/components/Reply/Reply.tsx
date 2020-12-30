@@ -19,8 +19,12 @@ type ContentProps = {
 
 export function Reply({ post }: PostProps) {
   const isExpandable = post.body.length > 280;
-
   const [expandState, setExpandState] = React.useState(!isExpandable);
+  const { nextPost } = useThread();
+
+  const launchThreadView = () => {
+    nextPost(post);
+  };
 
   const toggleBodyExpand = () => setExpandState((previous) => !previous);
 
@@ -48,11 +52,13 @@ export function Reply({ post }: PostProps) {
 
       <Content header={Header} post={post}>
         <PostBubble>
-          <PostParser>
-            <Body clickable>
-              {expandState ? post.body : post.body.slice(0, 279)}
-            </Body>
-          </PostParser>
+          <div onClick={launchThreadView}>
+            <PostParser>
+              <Body clickable>
+                {expandState ? post.body : post.body.slice(0, 279)}
+              </Body>
+            </PostParser>
+          </div>
 
           {isExpandable && Expandable}
         </PostBubble>
@@ -82,13 +88,8 @@ export function Reply({ post }: PostProps) {
 // }
 
 function Content({ header, post, children }: ContentProps) {
-  const { nextPost } = useThread();
-  const launchThreadView = () => {
-    nextPost(post);
-  };
-
   return (
-    <div className="ml-2 flex flex-col flex-grow" onClick={launchThreadView}>
+    <div className="ml-2 flex flex-col flex-grow">
       <div className="mb-1 md:mb-2">{header}</div>
 
       {children}
