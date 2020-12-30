@@ -44,7 +44,7 @@ export function Title({ children, styles = '', ...rest }: TextProps) {
 export function BodyTitle({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text
-      styles={`text-base font-medium text-gray-800 leading-snug md:leading-normal wrap-body ${styles}`}
+      styles={`text-base font-medium text-gray-800 leading-snug lg:leading-normal wrap-body ${styles}`}
       {...rest}
     >
       {children}
@@ -66,7 +66,7 @@ export function Body({ children, styles = '', ...rest }: TextProps) {
 export function Byline({ children, styles = '', ...rest }: TextProps) {
   return (
     <Text
-      styles={`text-sm md:text-base font-normal text-gray-500 ${styles}`}
+      styles={`text-sm lg:text-base font-normal text-gray-500 ${styles}`}
       {...rest}
     >
       {children}

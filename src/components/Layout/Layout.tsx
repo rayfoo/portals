@@ -7,7 +7,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <nav className="bg-white fixed z-10 w-full">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-12 md:h-16">
+          <div className="flex items-center justify-between h-12 lg:h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link to="/home">
@@ -18,7 +18,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   />
                 </Link>
               </div>
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                   <span className="text-gray-600 px-3 py-2 rounded-md text-sm font-medium">
@@ -34,8 +34,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-4 flex items-center md:ml-6">
+            <div className="hidden lg:block">
+              <div className="ml-4 flex items-center lg:ml-6">
                 <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                   <span className="sr-only">View notifications</span>
                   {/* <!-- Heroicon name: bell --> */}
@@ -115,7 +115,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex lg:hidden">
               {/* <!-- Mobile menu button --> */}
               <button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                 <span className="sr-only">Open main menu</span>
@@ -169,7 +169,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       Open: "block", closed: "hidden"
     --> */}
-        <div className="hidden md:hidden">
+        <div className="hidden lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
             <a
@@ -272,8 +272,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          <div className="mt-8 md:mt-20">
-            <div className="rounded-2xl w-72 py-8 px-3 bg-gray-200 fixed hidden md:block">
+          <div className="mt-8 lg:mt-20">
+            <div className="rounded-2xl w-72 py-8 px-3 bg-gray-200 fixed hidden lg:block">
               Sidebar
             </div>
 

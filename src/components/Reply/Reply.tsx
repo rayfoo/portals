@@ -90,7 +90,7 @@ export function Reply({ post }: PostProps) {
 function Content({ header, post, children }: ContentProps) {
   return (
     <div className="ml-2 flex flex-col flex-grow">
-      <div className="mb-1 md:mb-2">{header}</div>
+      <div className="mb-1 lg:mb-2">{header}</div>
 
       {children}
     </div>

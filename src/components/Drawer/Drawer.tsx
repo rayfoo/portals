@@ -47,7 +47,7 @@ export function Drawer({ children, isOpen, header, footer, onClose }: props) {
           onClick={handleClose}
         ></div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <section
             className="fixed inset-x-0 bottom-0 max-w-full flex z-50 px-0"
             style={{ height: 0.95 * height }}

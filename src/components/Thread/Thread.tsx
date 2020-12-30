@@ -75,11 +75,11 @@ export function Thread() {
         </div>
 
         <div className="bg-gray-100 p-4 mt-4 rounded-xl">
-          <span className="mr-2 md:mr-3">
+          <span className="mr-2 lg:mr-3">
             <Title styles="inline">20</Title>
             <Byline styles="inline ml-1">Replies</Byline>
           </span>
-          <span className="mr-2 md:mr-3">
+          <span className="mr-2 lg:mr-3">
             <Title styles="inline">20</Title>
             <Byline styles="inline ml-1">Upvotes</Byline>
           </span>

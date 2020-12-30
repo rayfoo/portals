@@ -12,7 +12,7 @@ export function Bubble({ children, styles = '' }: props) {
 export function PostBubble({ children, styles = '' }: props) {
   return (
     <Bubble
-      styles={`py-2 px-3 md:p-4 rounded-2xl rounded-tl-none shadow-sm ${styles}`}
+      styles={`py-2 px-3 lg:p-4 rounded-2xl rounded-tl-none shadow-sm ${styles}`}
     >
       {children}
     </Bubble>
