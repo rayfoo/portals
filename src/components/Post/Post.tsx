@@ -64,7 +64,9 @@ export function Post({ post }: PostProps) {
               <BodyTitle styles="mb-1">{post.title} </BodyTitle>
             </PostParser>
             <PostParser>
-              <Body>{expandState ? post.body : post.body.slice(0, 279)}</Body>
+              <Body clickable>
+                {expandState ? post.body : post.body.slice(0, 279)}
+              </Body>
             </PostParser>
           </div>
 
