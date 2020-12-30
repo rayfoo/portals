@@ -37,6 +37,7 @@ body.modal-open {
 
 .wrap-body {
   white-space: pre-wrap;
+  line-break: anywhere;
 }
 
 .linkify_highlight {

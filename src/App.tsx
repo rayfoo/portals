@@ -8,6 +8,7 @@ import { Layout } from './components/Layout';
 import { PostList } from './features/PostList';
 import { posts } from './data';
 import { ThreadContainer } from './features/ThreadContainer';
+import { NewPostContainer } from './features/NewPostContainer';
 import { InputBox } from './components/InputBox';
 import { Fab } from './components/Fab';
 
@@ -32,13 +33,15 @@ function App() {
 
           <Switch>
             <Route path="/new/post">
-              <div>Something else</div>
+              <NewPostContainer />
             </Route>
 
             <Route path="/">
               <ThreadContainer />
             </Route>
           </Switch>
+
+          <Fab />
         </div>
       </Router>
     </Store>

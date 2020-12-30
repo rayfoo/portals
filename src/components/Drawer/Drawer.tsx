@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useWindowDimensions } from '../../hooks';
 
 type props = {
@@ -12,16 +12,21 @@ type props = {
 export function Drawer({ children, isOpen, header, footer, onClose }: props) {
   const { height } = useWindowDimensions();
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [isOpen]);
+
   const handleClose = () => {
     onClose();
   };
 
   if (!isOpen) {
-    document.body.classList.remove('modal-open');
     return null;
   }
-
-  document.body.classList.add('modal-open');
 
   return (
     <div className="fixed inset-0 overflow-hidden z-40 transition-all">
@@ -44,7 +49,7 @@ export function Drawer({ children, isOpen, header, footer, onClose }: props) {
                 {header}
 
                 {/* Main Content */}
-                <div className="mb-12 overflow-y-scroll touch-scroll h-full">
+                <div className="mb-12 overflow-y-auto touch-scroll h-full">
                   {children}
                 </div>
 
