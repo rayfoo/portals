@@ -17,6 +17,7 @@ export function Drawer({ children, isOpen, header, footer, onClose }: props) {
   };
 
   if (!isOpen) {
+    document.body.classList.remove('modal-open');
     return null;
   }
 
