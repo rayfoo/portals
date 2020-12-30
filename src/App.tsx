@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import 'react-tiny-fab/dist/styles.css';
 
 import './App.css';
 import { Store } from './store';
 import { Layout } from './components/Layout';
 import { PostList } from './features/PostList';
 import { posts } from './data';
-import { MobileSlider } from './components/Slider';
-import { Thread } from './components/Thread';
+import { ThreadContainer } from './features/ThreadContainer';
 import { InputBox } from './components/InputBox';
+import { Fab } from './components/Fab';
 
 function App() {
   return (
@@ -29,11 +30,15 @@ function App() {
             </Switch>
           </Layout>
 
-          <MobileSlider>
-            <Route path="/">
-              <Thread />
+          <Switch>
+            <Route path="/new/post">
+              <div>Something else</div>
             </Route>
-          </MobileSlider>
+
+            <Route path="/">
+              <ThreadContainer />
+            </Route>
+          </Switch>
         </div>
       </Router>
     </Store>
