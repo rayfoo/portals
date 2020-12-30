@@ -2,7 +2,11 @@ import React from 'react';
 
 import { useRouter } from '../../hooks';
 import { Drawer } from '../../components/Drawer';
-import { NewPost } from '../../components/NewPost';
+import {
+  NewPost,
+  NewPostHeader,
+  NewPostFooter,
+} from '../../components/NewPost';
 
 export function NewPostContainer() {
   const { goBack, getPath } = useRouter();
@@ -10,21 +14,12 @@ export function NewPostContainer() {
 
   return (
     <Drawer
-      header={<div>Header</div>}
-      footer={<div>Footer</div>}
+      header={<NewPostHeader onClose={() => goBack()} />}
+      footer={<NewPostFooter />}
       isOpen={isOpen}
       onClose={() => goBack()}
     >
       <NewPost />
-      {/* <NewPost />
-      <NewPost />
-      <NewPost />
-      <NewPost />
-      <NewPost />
-      <NewPost />
-      <NewPost />
-      <NewPost />
-      <NewPost /> */}
     </Drawer>
   );
 }
