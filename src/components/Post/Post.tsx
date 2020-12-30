@@ -30,11 +30,11 @@ export function Post({ post }: PostProps) {
 
   const Header = (
     <>
-      <Title styles="inline">{post.user.handle}</Title>
+      <Title className="inline">{post.user.handle}</Title>
       {post.parent ? (
-        <Byline styles="inline"> posted a reply</Byline>
+        <Byline className="inline"> posted a reply</Byline>
       ) : (
-        <Byline styles="inline">{` in ${post.postedIn.name}`}</Byline>
+        <Byline className="inline">{` in ${post.postedIn.name}`}</Byline>
       )}
     </>
   );
@@ -42,11 +42,11 @@ export function Post({ post }: PostProps) {
   const Expandable = (
     <span onClick={toggleBodyExpand} className="inline">
       {expandState ? (
-        <Minion clickable styles="inline">
+        <Minion clickable className="inline">
           Show less
         </Minion>
       ) : (
-        <Minion clickable styles="text-blue-600 inline">
+        <Minion clickable className="text-blue-600 inline">
           Show more
         </Minion>
       )}
@@ -58,10 +58,10 @@ export function Post({ post }: PostProps) {
       <Avatar url={post.user.avatarURL} alt="user avatar" />
 
       <Content header={Header} post={post}>
-        <PostBubble styles={`${post.replies && 'shadow-lg'}`}>
+        <PostBubble className={`${post.replies && 'shadow-lg'}`}>
           <div onClick={launchThreadView}>
             <PostParser>
-              <BodyTitle styles="mb-1">{post.title} </BodyTitle>
+              <BodyTitle className="mb-1">{post.title} </BodyTitle>
             </PostParser>
             <PostParser>
               <Body clickable>
@@ -87,7 +87,7 @@ export function Post({ post }: PostProps) {
 
 export function Replies({ count }: { count: number }) {
   const NoReplies = (
-    <Minion clickable styles="ml-auto mt-1 pr-2">
+    <Minion clickable className="ml-auto mt-1 pr-2">
       Reply
     </Minion>
   );
@@ -96,7 +96,7 @@ export function Replies({ count }: { count: number }) {
     <div
       className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl -z-10`}
     >
-      <Minion clickable invert styles="float-right">
+      <Minion clickable invert className="float-right">
         {count} replies
       </Minion>
     </div>

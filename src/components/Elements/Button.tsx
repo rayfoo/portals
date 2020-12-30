@@ -5,6 +5,7 @@ type props = {
   size?: 'sm' | 'base' | 'lg';
   className?: string;
   roundedFull?: boolean;
+  [x: string]: any;
 };
 
 export function PrimaryButton({

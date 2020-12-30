@@ -37,7 +37,7 @@ export function Thread() {
       {expandState ? (
         <Minion clickable>Show less</Minion>
       ) : (
-        <Minion clickable styles="text-blue-600">
+        <Minion clickable className="text-blue-600">
           Show more
         </Minion>
       )}
@@ -50,11 +50,11 @@ export function Thread() {
       <div>
         <Avatar url={post.user.avatarURL} alt="user avatar" />
 
-        <Title styles="inline ml-2">{post.user.handle}</Title>
+        <Title className="inline ml-2">{post.user.handle}</Title>
         {post.parent ? (
-          <Byline styles="inline"> posted a reply</Byline>
+          <Byline className="inline"> posted a reply</Byline>
         ) : (
-          <Byline styles="inline">{` in ${post.postedIn.name}`}</Byline>
+          <Byline className="inline">{` in ${post.postedIn.name}`}</Byline>
         )}
       </div>
       <div className="mt-2 relative">
@@ -76,15 +76,15 @@ export function Thread() {
 
         <div className="bg-gray-100 p-4 mt-4 rounded-xl">
           <span className="mr-2 lg:mr-3">
-            <Title styles="inline">20</Title>
-            <Byline styles="inline ml-1">Replies</Byline>
+            <Title className="inline">20</Title>
+            <Byline className="inline ml-1">Replies</Byline>
           </span>
           <span className="mr-2 lg:mr-3">
-            <Title styles="inline">20</Title>
-            <Byline styles="inline ml-1">Upvotes</Byline>
+            <Title className="inline">20</Title>
+            <Byline className="inline ml-1">Upvotes</Byline>
           </span>
           <span className="float-right">
-            <Title clickable styles="inline">
+            <Title clickable className="inline">
               Latest Posts
             </Title>
             <ChevronDown

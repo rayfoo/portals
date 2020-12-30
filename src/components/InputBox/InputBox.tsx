@@ -15,7 +15,7 @@ export function InputBox() {
           url="https://uifaces.co/our-content/donated/XYVACZHF.jpg"
           alt=""
         />
-        <Byline styles="ml-2">Post in [Community Dropdown]</Byline>
+        <Byline className="ml-2">Post in [Community Dropdown]</Byline>
       </div>
       <div className="flex flex-col flex-grow">
         <TextArea

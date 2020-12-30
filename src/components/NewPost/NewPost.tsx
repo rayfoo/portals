@@ -11,8 +11,8 @@ export function NewPost() {
   return (
     <div className="flex flex-col">
       <div className="flex-shrink-0 bg-gray-100 px-2 py-4">
-        <Body styles="ml-2">Select a space</Body>
-        <Body styles="ml-2">Dropdown for selecting spaces</Body>
+        <Body className="ml-2">Select a space</Body>
+        <Body className="ml-2">Dropdown for selecting spaces</Body>
       </div>
       <div className="flex flex-col flex-grow p-4">
         <div className="flex flex-shrink-0 mb-4">
@@ -21,7 +21,7 @@ export function NewPost() {
             url="https://uifaces.co/our-content/donated/XYVACZHF.jpg"
             alt=""
           />
-          <Title styles="ml-2">@someone</Title>
+          <Title className="ml-2">@someone</Title>
         </div>
 
         <TextArea

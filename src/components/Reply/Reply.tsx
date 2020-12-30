@@ -30,7 +30,7 @@ export function Reply({ post }: PostProps) {
 
   const Header = (
     <>
-      <Title styles="inline text-sm">{post.user.handle}</Title>
+      <Title className="inline text-sm">{post.user.handle}</Title>
     </>
   );
 
@@ -39,7 +39,7 @@ export function Reply({ post }: PostProps) {
       {expandState ? (
         <Minion clickable>Show less</Minion>
       ) : (
-        <Minion clickable styles="text-blue-600">
+        <Minion clickable className="text-blue-600">
           Show more
         </Minion>
       )}
@@ -69,7 +69,7 @@ export function Reply({ post }: PostProps) {
 
 // function Replies({ count }: { count: number }) {
 //   const NoReplies = (
-//     <Minion clickable styles="ml-auto mt-1 pr-2">
+//     <Minion clickable className="ml-auto mt-1 pr-2">
 //       Reply
 //     </Minion>
 //   );
@@ -78,7 +78,7 @@ export function Reply({ post }: PostProps) {
 //     <div
 //       className={`ml-6 -mt-3 pt-3 pb-1 px-2 bg-blue-600 rounded-b-2xl -z-10`}
 //     >
-//       <Minion clickable invert styles="float-right">
+//       <Minion clickable invert className="float-right">
 //         {count} replies
 //       </Minion>
 //     </div>

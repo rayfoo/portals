@@ -25,14 +25,17 @@ export function EmbeddedPost({ post, onClick, media = true }: props) {
     <EmbeddedBubble>
       <Avatar size="sm" url={post.user.avatarURL} alt="user avatar" />
       <span className="ml-2">
-        <Title clickable styles="inline">
+        <Title clickable className="inline">
           {post.user.handle}
         </Title>
-        <Byline clickable styles="inline">{` in ${post.postedIn.name}`}</Byline>
+        <Byline
+          clickable
+          className="inline"
+        >{` in ${post.postedIn.name}`}</Byline>
       </span>
 
       <div onClick={launchThreadView}>
-        <Body clickable styles="mt-1">
+        <Body clickable className="mt-1">
           {isLongText ? `${post.body.slice(0, 279)}...` : post.body}
         </Body>
       </div>
