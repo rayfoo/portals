@@ -6,9 +6,15 @@ type props = {
   onFocus?: (state: boolean) => void;
   isTitle?: boolean;
   placeholder?: string;
+  minRows?: number;
 };
 
-export function TextArea({ onFocus, isTitle, placeholder = '' }: props) {
+export function TextArea({
+  onFocus,
+  isTitle,
+  placeholder = '',
+  minRows = 1,
+}: props) {
   const { Option } = Mentions;
 
   const handleFocus = (state: boolean) => {
@@ -18,19 +24,20 @@ export function TextArea({ onFocus, isTitle, placeholder = '' }: props) {
   };
 
   const styles = {
-    fontSize: '16px',
+    fontSize: '18px',
+    lineHeight: 1.2,
   };
 
   const titleStyles = {
     fontWeight: 500,
-    fontSize: '18px',
+    fontSize: '22px',
     color: '#1F2937',
   };
 
   return (
     <Mentions
       prefix="#"
-      autoSize={{ minRows: 1 }}
+      autoSize={{ minRows }}
       placeholder={placeholder}
       onFocus={() => handleFocus(true)}
       style={isTitle ? { ...styles, ...titleStyles } : styles}
