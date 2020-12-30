@@ -1,15 +1,12 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
-import { useThread } from '../../hooks';
+import { useThread, useRouter } from '../../hooks';
 import { Drawer } from '../../components/Drawer';
 import { Thread, ThreadHeader, ThreadFooter } from '../../components/Thread';
 
 export function ThreadContainer() {
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const currentPostID = query.get('postID');
-  const isOpen = currentPostID ? true : false;
+  const { getQuery } = useRouter();
+  const isOpen = getQuery('postID') ? true : false;
 
   const { closePost, prevPost } = useThread();
 

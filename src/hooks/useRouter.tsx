@@ -1,16 +1,27 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export function useRouter() {
   const history = useHistory();
-
-  console.log('HISTORY', history);
+  const location = useLocation();
 
   const goTo = (link: string) => {
     history.push(link);
   };
 
+  const getQuery = (name: string) => {
+    const query = new URLSearchParams(location.search);
+    const result = query.get(name);
+
+    if (!result) {
+      return null;
+    }
+
+    return result;
+  };
+
   return {
     goTo,
+    getQuery,
   };
 }
