@@ -44,12 +44,12 @@ export function Drawer({ children, isOpen, header, footer, onClose }: props) {
                 {header}
 
                 {/* Main Content */}
-                <div className="p-4 mb-12 overflow-y-scroll touch-scroll h-full">
+                <div className="mb-12 overflow-y-scroll touch-scroll h-full">
                   {children}
                 </div>
 
                 {/* Footer */}
-                <div className="absolute bottom-0 left-0 py-3 px-4 bg-white w-full shadow-invert rounded-bl-2xl flex flex-row justify-around">
+                <div className="absolute bottom-0 left-0 bg-white w-full shadow-invert rounded-bl-2xl">
                   {footer}
                 </div>
               </div>
