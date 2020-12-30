@@ -1,10 +1,11 @@
 import React from 'react';
 import { Image, Video } from 'react-feather';
+import { PrimaryButton } from '../Elements/Button';
 
 export function NewPostFooter() {
   return (
-    <div className="p-4 flex flex-row justify-around">
-      <div className="flex flex-row cursor-pointer mt-2">
+    <div className="p-4 flex flex-row">
+      <div className="flex flex-row cursor-pointer">
         <Image
           color="#2563EB"
           strokeWidth={2}
@@ -19,9 +20,11 @@ export function NewPostFooter() {
         />
       </div>
 
-      <div className="py-1 px-4 bg-blue-600 rounded-full ml-auto text-white">
-        Post
-      </div>
+      <span className="ml-auto">
+        <PrimaryButton roundedFull size="base">
+          Post
+        </PrimaryButton>
+      </span>
     </div>
   );
 }
