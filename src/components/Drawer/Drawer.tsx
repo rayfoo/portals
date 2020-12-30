@@ -1,4 +1,9 @@
 import React, { useEffect } from 'react';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock';
 import { useWindowDimensions } from '../../hooks';
 
 type props = {
@@ -11,16 +16,21 @@ type props = {
 
 export function Drawer({ children, isOpen, header, footer, onClose }: props) {
   const { height } = useWindowDimensions();
+  const targetScrollRef = React.createRef<any>();
+  let targetScrollEl: any = null;
 
   useEffect(() => {
+    targetScrollEl = targetScrollRef.current;
+
     if (isOpen) {
-      document.body.classList.add('modal-open');
+      disableBodyScroll(targetScrollEl);
     } else {
-      document.body.classList.remove('modal-open');
+      clearAllBodyScrollLocks();
     }
   }, [isOpen]);
 
   const handleClose = () => {
+    clearAllBodyScrollLocks();
     onClose();
   };
 
@@ -49,7 +59,10 @@ export function Drawer({ children, isOpen, header, footer, onClose }: props) {
                 {header}
 
                 {/* Main Content */}
-                <div className="mb-12 overflow-y-auto touch-scroll h-full">
+                <div
+                  className="mb-12 overflow-y-auto touch-scroll h-full"
+                  ref={targetScrollRef}
+                >
                   {children}
                 </div>
 

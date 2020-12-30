@@ -5,29 +5,11 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-weight: 400;
   color: #1f2937;
-
-  /* Hide scroll bar */
-  /* scrollbar-width: none; */
-  /* -ms-overflow-style: none; */
   position: relative;
 }
 
-/* Hide scroll bar */
-/* body::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
-} */
 textarea::placeholder {
   color: #9ca3af;
-}
-
-/* Prevent scroll when modal is open on ios */
-body.modal-open {
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: auto;
-  touch-action: none;
-  -ms-touch-action: none;
 }
 
 .touch-scroll {
