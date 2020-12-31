@@ -14,6 +14,7 @@ module.exports = {
       sans: ['Inter UI', 'sans-serif'],
     },
     fontSize: {
+      '2xs': '12px',
       xs: '13px',
       sm: '14px',
       base: '15px',
@@ -26,7 +27,7 @@ module.exports = {
       },
       boxShadow: {
         invert:
-          '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          '0 -1px 3px -0px rgba(0, 0, 0, 0.1), 0 1px 2px 0px rgba(0, 0, 0, 0.05)',
       },
     },
   },
