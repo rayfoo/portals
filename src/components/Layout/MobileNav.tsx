@@ -9,7 +9,7 @@ export function MobileNav() {
   const activeStyles = 'bg-blue-200';
 
   return (
-    <div className="fixed bottom-0 left-0 py-2 px-6 bg-white w-full shadow-invert">
+    <div className="fixed bottom-0 left-0 py-2 px-6 bg-white w-full shadow-invert z-30">
       <div className="flex flex-row justify-between content-center">
         <NavItem
           linkTo="/home"
