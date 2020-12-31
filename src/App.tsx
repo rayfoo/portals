@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import 'react-tiny-fab/dist/styles.css';
 
 import './App.css';
@@ -9,6 +9,7 @@ import { PostList } from './features/PostList';
 import { posts } from './data';
 import { ThreadContainer } from './features/ThreadContainer';
 import { NewPostContainer } from './features/NewPostContainer';
+import { NavContainer } from './features/NavContainer';
 import { Fab } from './components/Fab';
 
 function App() {
@@ -16,13 +17,39 @@ function App() {
     <Store>
       <Router>
         <div className="app">
-          <Layout>
+          <Layout
+            heading={
+              <Route path="/">
+                <NavContainer />
+              </Route>
+            }
+          >
             <Switch>
-              <Route path="/test">
-                <h1>Another route</h1>
+              <Route path="/circles/:id">
+                <h1>Community Feed</h1>
               </Route>
 
-              <Route path="/">
+              <Route path="/circles">
+                <Link to="/circles/1" className="cursor-pointer">
+                  Community #1
+                </Link>
+                <Link to="/circles/2" className="cursor-pointer">
+                  Community #2
+                </Link>
+                <Link to="/circles/3" className="cursor-pointer">
+                  Community #3
+                </Link>
+              </Route>
+
+              <Route path="/explore">
+                <h1>Explore</h1>
+              </Route>
+
+              <Route path="/profile">
+                <h1>Profile</h1>
+              </Route>
+
+              <Route path="/home">
                 <PostList posts={posts} />
               </Route>
             </Switch>
