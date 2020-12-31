@@ -1,13 +1,10 @@
 import React from 'react';
 
-import { Image, Video } from 'react-feather';
 import { Avatar } from '../Elements/Avatar';
 import { Title, Body } from '../Elements/Text';
 import { TextArea } from '../TextArea';
 
 export function NewPost() {
-  const [focusState, setFocusState] = React.useState(false);
-
   return (
     <div className="flex flex-col">
       <div className="flex-shrink-0 bg-gray-100 px-2 py-4">
@@ -24,17 +21,9 @@ export function NewPost() {
           <Title className="ml-2">@someone</Title>
         </div>
 
-        <TextArea
-          onFocus={setFocusState}
-          isTitle
-          placeholder="What is on your mind?"
-        />
+        <TextArea isTitle placeholder="What is on your mind?" />
         <div className="mt-4">
-          <TextArea
-            onFocus={setFocusState}
-            placeholder="Additional details"
-            minRows={5}
-          />
+          <TextArea placeholder="Additional details" minRows={5} />
         </div>
       </div>
     </div>

@@ -9,7 +9,6 @@ import { PostList } from './features/PostList';
 import { posts } from './data';
 import { ThreadContainer } from './features/ThreadContainer';
 import { NewPostContainer } from './features/NewPostContainer';
-import { InputBox } from './components/InputBox';
 import { Fab } from './components/Fab';
 
 function App() {

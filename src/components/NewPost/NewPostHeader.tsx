@@ -1,5 +1,5 @@
 import React from 'react';
-import { CornerUpLeft, XCircle, Bookmark } from 'react-feather';
+import { XCircle } from 'react-feather';
 import { Heading } from '../Elements/Text';
 
 type props = {

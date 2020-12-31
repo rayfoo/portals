@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from 'body-scroll-lock';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { useWindowDimensions } from '../../hooks';
 
 type props = {
@@ -17,9 +13,9 @@ type props = {
 export function Drawer({ children, isOpen, header, footer, onClose }: props) {
   const { height } = useWindowDimensions();
   const targetScrollRef = React.createRef<any>();
-  let targetScrollEl: any = null;
 
   useEffect(() => {
+    let targetScrollEl: any = null;
     targetScrollEl = targetScrollRef.current;
 
     if (isOpen) {
@@ -27,7 +23,7 @@ export function Drawer({ children, isOpen, header, footer, onClose }: props) {
     } else {
       clearAllBodyScrollLocks();
     }
-  }, [isOpen]);
+  }, [isOpen, targetScrollRef]);
 
   const handleClose = () => {
     clearAllBodyScrollLocks();
