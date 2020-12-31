@@ -16,7 +16,7 @@ export function Layout({ children, heading }: props) {
       {heading}
 
       <main>
-        <div className="max-w-7xl mx-auto py-6 px-4 lg:px-6">
+        <div className="max-w-7xl mx-auto py-6 px-4 lg:px-6 mb-10">
           <div className="mt-10 lg:mt-20">
             <div className="rounded-2xl w-72 py-8 px-3 bg-gray-200 fixed hidden lg:block">
               Sidebar
