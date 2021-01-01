@@ -7,7 +7,7 @@ type props = {
 
 export function Container({ children, ...rest }: props) {
   return (
-    <div className="max-w-2xl lg:ml-80" {...rest}>
+    <div className="mx-auto py-6 px-4 lg:px-6" {...rest}>
       {children}
     </div>
   );
