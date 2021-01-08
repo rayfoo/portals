@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Tab, Tabs, TabList, TabPanel } from './components/Elements/Tab';
+import './components/Elements/Tab/styles.css';
+
 import 'react-tiny-fab/dist/styles.css';
 
 import './App.css';
@@ -11,6 +14,9 @@ import { ThreadContainer } from './features/ThreadContainer';
 import { NewPostContainer } from './features/NewPostContainer';
 import { NavContainer } from './features/NavContainer';
 import { Fab } from './components/Fab';
+import { CommunityCard } from './components/CommunityCard';
+import { Container } from './components/Elements/Container';
+import { Heading, Title } from './components/Elements/Text';
 
 function App() {
   return (
@@ -26,23 +32,43 @@ function App() {
           >
             <Switch>
               <Route path="/circles/:id">
-                <h1>Community Feed</h1>
+                <h1>Community</h1>
               </Route>
 
               <Route path="/circles">
-                <Link to="/circles/1" className="cursor-pointer">
-                  Community #1
-                </Link>
-                <Link to="/circles/2" className="cursor-pointer">
-                  Community #2
-                </Link>
-                <Link to="/circles/3" className="cursor-pointer">
-                  Community #3
-                </Link>
+                <Tabs>
+                  <TabList>
+                    <Tab>
+                      <Title clickable className="text-center">
+                        COMMUNITIES
+                      </Title>
+                    </Tab>
+                    <Tab>
+                      <Title clickable className="text-center">
+                        FOLLOWERS
+                      </Title>
+                    </Tab>
+                  </TabList>
+
+                  <TabPanel>
+                    <Container>
+                      <CommunityCard />
+                      <CommunityCard />
+                      <CommunityCard />
+                    </Container>
+                  </TabPanel>
+                  <TabPanel>
+                    <h2>Any content 2</h2>
+                  </TabPanel>
+                </Tabs>
               </Route>
 
               <Route path="/explore">
-                <h1>Explore</h1>
+                <Container>
+                  <CommunityCard />
+                  <CommunityCard />
+                  <CommunityCard />
+                </Container>
               </Route>
 
               <Route path="/profile">
@@ -50,7 +76,9 @@ function App() {
               </Route>
 
               <Route path="/home">
-                <PostList posts={posts} />
+                <Container>
+                  <PostList posts={posts} />
+                </Container>
               </Route>
             </Switch>
           </Layout>

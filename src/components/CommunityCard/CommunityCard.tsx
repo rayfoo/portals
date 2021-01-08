@@ -6,9 +6,9 @@ import { PrimaryButton } from '../Elements/Button';
 export function CommunityCard() {
   return (
     <Link to="/circles/1">
-      <div className="border border-gray-200 rounded-2xl my-4 relative">
+      <div className="border border-gray-200 rounded-2xl mb-4 relative">
         <div
-          className="absolute top-0 left-0 px-4 z-0 h-12 w-full bg-red-100 bg-cover bg-center rounded-t-2xl"
+          className="absolute top-0 left-0 px-4 z-0 h-12 w-full bg-cover bg-center rounded-t-2xl"
           style={{
             backgroundImage:
               "url('https://previews.123rf.com/images/nataliakuprova/nataliakuprova1804/nataliakuprova180400008/99552618-hand-drawn-black-and-white-abstract-confetti-seamless-pattern-pop-art-fashion-festival-abstract-back.jpg')",
